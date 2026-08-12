@@ -1,4 +1,5 @@
 import { Image, StyleSheet, Text, View } from "react-native";
+import { colors } from "../../constants/theme";
 
 
 export default function CardMovimentacao() {
@@ -10,7 +11,7 @@ export default function CardMovimentacao() {
 
             <View style={styles.infoCard}>
                 <Text style={styles.estabelecimento}>Supermercado Extra</Text>
-                <Text style={styles.data}>09:42 Alimentacao</Text>
+                <Text style={styles.data}>09:42 . Alimentacao</Text>
             </View>
             <View>
                 <Text style={styles.preco}>-R$ 145,00</Text>
@@ -21,9 +22,9 @@ export default function CardMovimentacao() {
 
 const styles = StyleSheet.create({
     card: {
-        backgroundColor: '#0D1C2D',
+        backgroundColor: colors.superface,
         width: '100%',
-        height: '20%',
+        height: '25%',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
@@ -34,20 +35,21 @@ const styles = StyleSheet.create({
         gap: '10%'
     },
     preco: {
-        color: '#00A572'
+        color: colors.transitionGreen
     },
     data: {
-        color: '#D4E4FA'
+        color: colors.gray,
+        opacity: 0.4
     },
     estabelecimento: {
-        color: '#D4E4FA'
+        color: colors.gray
     }
     ,
     areaIcone:{
         width: '10%'
     },
     icone:{
-
+        width: '100%'
     },
     infoCard:{
         width: '45%'

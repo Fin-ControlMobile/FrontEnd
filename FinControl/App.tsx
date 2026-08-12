@@ -1,17 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Movimentacoes from './src/movimentacoes';
+import Movimentacoes from './src/app/movimentacoes';
+import { Ionicons } from '@expo/vector-icons';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-     <Movimentacoes/>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.safeareaview}>
+        <Movimentacoes />
+        <StatusBar style='dark' />
+      </SafeAreaView>
+    </SafeAreaProvider>
+
+
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeareaview: {
     flex: 1
   }
 });
