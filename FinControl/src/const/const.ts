@@ -11,3 +11,10 @@ export const colors = {
     gray: "#958EA0",
     white: "#FFFFFF",
 }
+
+export const fonts = {
+    jetBrainsRegular: "JetBrainsMono_400Regular",
+    manropSemiBold: "Manrope_600SemiBold",
+    manropBold: "Manrope_700Bold",
+    manropExtraBold: "Manrope_800ExtraBold"
+}
