@@ -6,7 +6,7 @@ import { styles } from './header.styles';
 export default function Header() {
     return (
         <View style={styles.container}>
-            <FontAwesome5 name="user-circle" size={35} color="#A078FF" />
+            <FontAwesome5 name="user-circle" size={50} color="#A078FF" />
             <View>
                 <Text style={styles.secondarySource}>Olá,</Text>
                 <Text style={styles.featuredSource}>Usuário</Text>

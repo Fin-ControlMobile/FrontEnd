@@ -3,11 +3,11 @@ import { colors, fonts } from "../../const/const";
 
 export const styles = StyleSheet.create({
     container: {
-        // backgroundColor: "red",
         height: "10%",
         width: "100%",
         flexDirection: "row",
-        gap: 10
+        gap: 15,
+        alignItems: "center"
     },
 
     featuredSource: {
