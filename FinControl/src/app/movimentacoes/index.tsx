@@ -64,7 +64,7 @@ export default function Movimentacoes() {
         </View>
 
         <View style={styles.tabela}>
-          <Text style={styles.txtIndicativo}>Hoje</Text>
+          <Text style={styles.txtIndicativo}>Todas</Text>
           <View style={styles.tabelaCards}>
             <CardMovimentacao />
             <CardMovimentacao />
@@ -72,7 +72,7 @@ export default function Movimentacoes() {
           </View>
         </View>
       </View>
-        <Footer />
+      <Footer />
     </View>
   )
 }
@@ -82,11 +82,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.bgc,
     alignItems: 'center',
-    gap: '6%',
-    width: '100%'
+    width: '100%',
+    flexDirection: 'column'
   },
   main: {
-    width: '100%'
+    width: '100%',
+    gap: '7.3%',
+    flexDirection: 'column'
   }
   ,
   headerMov: {
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
     gap: '44%'
   },
   txtHeader: {
-    color: colors.colorFontTile,
+    color: colors.purpleEmphasis,
     fontSize: 25,
     fontWeight: 600
   },
@@ -142,6 +144,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
     alignItems: "center",
+    top: 35
   },
 
   filtroText: {

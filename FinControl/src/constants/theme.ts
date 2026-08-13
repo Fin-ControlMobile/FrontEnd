@@ -1,6 +1,6 @@
 export const colors = {
     bgc: "#061626",
-    purpleEmphasis: "#A078FF",
+    purpleEmphasis: "#D0BCFF",
     superface: "#132333",
     exitRed: "#93000A",
     transitionRed: "#FFB4AB",
