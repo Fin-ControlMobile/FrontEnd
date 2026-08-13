@@ -11,13 +11,13 @@ export const styles = StyleSheet.create({
     },
 
     featuredSource: {
-        fontSize: 25,
+        fontSize: 15,
         fontFamily: fonts.jetBrainsRegular,
         color: colors.purpleEmphasis
     },
 
     secondarySource: {
-        fontSize: 20,
+        fontSize: 17,
         fontFamily: fonts.jetBrainsRegular,
         color: colors.gray
     }

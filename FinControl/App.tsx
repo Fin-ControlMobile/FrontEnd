@@ -5,6 +5,7 @@ import Header from './src/component/header/header';
 import { JetBrainsMono_400Regular } from '@expo-google-fonts/jetbrains-mono';
 import { Manrope_800ExtraBold, Manrope_700Bold, Manrope_600SemiBold } from '@expo-google-fonts/manrope';
 import { useFonts } from 'expo-font';
+import Home from './src/app/home/home';
 export default function App() {
 
    const[loaded] = useFonts({
@@ -19,18 +20,7 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Header />
-      <Footer />
-      <StatusBar style="auto" />
-    </View>
+        <Home />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#001021',
-    justifyContent: "space-between"
-  },
-});
