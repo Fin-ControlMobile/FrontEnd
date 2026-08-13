@@ -1,7 +1,7 @@
 import { FlatList, FlatListComponent, Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 import CardMovimentacao from "../../components/cardMovimentacao/cardMovimentacao"
 import { Ionicons } from "@expo/vector-icons"
-import { colors } from "../../constants/theme"
+import { colors, fonts } from "../../constants/theme"
 import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
 import Footer from "../../components/footer/footer";
@@ -105,11 +105,13 @@ const styles = StyleSheet.create({
   txtHeader: {
     color: colors.purpleEmphasis,
     fontSize: 25,
-    fontWeight: 600
+    fontFamily: fonts.manropExtraBold
   },
   textFiltro: {
     color: colors.colorFont,
-    fontSize: 16
+    fontSize: 16,
+    fontFamily: fonts.jetBrainsRegular,
+    opacity: 0.6
   },
   tabelaCards: {
     width: '100%',
@@ -119,7 +121,8 @@ const styles = StyleSheet.create({
   },
   txtIndicativo: {
     color: colors.colorFontTile,
-    fontSize: 20
+    fontSize: 20,
+    fontFamily: fonts.manropSemiBold
   },
   btnNotif: {
     width: '40%'

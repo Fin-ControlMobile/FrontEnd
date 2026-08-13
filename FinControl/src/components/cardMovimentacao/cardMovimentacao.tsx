@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import { colors } from "../../constants/theme";
+import { colors, fonts } from "../../constants/theme";
 
 
 export default function CardMovimentacao() {
@@ -35,14 +35,17 @@ const styles = StyleSheet.create({
         gap: '10%'
     },
     preco: {
-        color: colors.transitionGreen
+        color: colors.transitionGreen,
+        fontFamily: fonts.manropExtraBold
     },
     data: {
         color: colors.gray,
-        opacity: 0.4
+        opacity: 0.4,
+        fontFamily: fonts.jetBrainsRegular
     },
     estabelecimento: {
-        color: colors.gray
+        color: colors.gray,
+        fontFamily: fonts.manropSemiBold
     }
     ,
     areaIcone:{
@@ -52,6 +55,7 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     infoCard:{
-        width: '45%'
+        width: '45%',
+
     }
 })
