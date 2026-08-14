@@ -109,4 +109,8 @@ export const styles = StyleSheet.create({
         color: colors.purpleEmphasis,
         fontSize: 15
     },
+
+    containerFooter: {
+        backgroundColor: colors.bgc
+    }
 })
