@@ -25,7 +25,7 @@ export default function App() {
     <SafeAreaProvider>
       <View style={styles.container}>
         <StatusBar style='light' />
-        <LoginSemBiometria />
+        <LoginSemBiometria/>
       </View>
     </SafeAreaProvider>
 

@@ -1,6 +1,6 @@
 import { Text, TextInput, TouchableOpacity, View } from 'react-native'
 import Fontisto from '@expo/vector-icons/Fontisto';
-import { styles } from './styles';
+import { styles } from '../../styles/styles';
 import { useRouter } from 'expo-router';
 
 
