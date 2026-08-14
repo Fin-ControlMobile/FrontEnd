@@ -34,7 +34,7 @@ export function LoginSemBiometria() {
   const router = useRouter();
 
   function acessar() {
-    router.push("/home/home.tsx");
+    router.push("/home");
   }
 
   return (
