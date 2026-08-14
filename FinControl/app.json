@@ -28,6 +28,7 @@
     },
     "plugins": [
 <<<<<<< HEAD
+<<<<<<< HEAD
       "expo-font"
 =======
       "expo-router",
@@ -41,6 +42,9 @@
 =======
       "expo-local-authentication"
 >>>>>>> origin/feature/login
+=======
+      "expo-font"
+>>>>>>> origin/feature/seguranca
     ]
   }
 }
