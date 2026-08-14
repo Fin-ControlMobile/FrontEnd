@@ -32,10 +32,14 @@
 =======
       "expo-router",
       "expo-font",
+<<<<<<< HEAD
       "expo-local-authentication",
       {
         "faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
       }
+>>>>>>> origin/feature/login
+=======
+      "expo-local-authentication"
 >>>>>>> origin/feature/login
     ]
   }
