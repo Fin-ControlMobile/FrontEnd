@@ -1,7 +1,8 @@
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { router } from 'expo-router';
 import Fontisto from '@expo/vector-icons/Fontisto';
-import { styles } from './styles';
+import { styles } from '../../styles/styles';
+import { useRouter } from 'expo-router';
 
 
 function acessar() {
@@ -36,6 +37,12 @@ export default function Login() {
 
 
 export function LoginSemBiometria() {
+  const router = useRouter();
+
+  function acessar() {
+    router.push("/home");
+  }
+
   return (
     <View style={styles.background}>
 
@@ -60,13 +67,11 @@ export function LoginSemBiometria() {
           <Text style={styles.textLogin}>Senha</Text>
           <View>
             {/* <Fontisto name="locked" size={20} color="#958ea0" style={styles.icon}/> */}
-
             <TextInput
               style={styles.inputLogin}
               placeholder="Insira sua senha"
               placeholderTextColor="#958ea0"
               secureTextEntry
-
             />
           </View>
         </View>

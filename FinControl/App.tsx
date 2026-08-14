@@ -28,14 +28,14 @@ export default function App() {
     </SafeAreaProvider>
 
   );
-  }
+}
 
-  const styles = StyleSheet.create({
-    container:{
-      flex: 1,
-      backgroundColor: Colors.backgroundColor,
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-  });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.backgroundColor,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+});
 
