@@ -69,6 +69,12 @@ export const styles = StyleSheet.create({
     textTitleBiometric:{
         ...Title,
         color: Colors.whiteTitleColor
+    },
+    imgBiometric:{
+        alignSelf:"center"
+    },
+    biometricButton:{
+        marginVertical: 40
     }
 
 

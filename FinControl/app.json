@@ -4,6 +4,10 @@
     "slug": "FinControl",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme":"FinControl",
+    "experiments": {
+        "typedRoutes":true
+    },
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
@@ -27,28 +31,10 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "expo-font"
-=======
-      "expo-router",
       "expo-font",
-<<<<<<< HEAD
+      "expo-router",
       "expo-local-authentication",
-      {
-        "faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
-      }
->>>>>>> origin/feature/login
-=======
-      "expo-local-authentication"
->>>>>>> origin/feature/login
-=======
-      "expo-font"
->>>>>>> origin/feature/seguranca
-=======
-      "expo-font"
->>>>>>> origin/feature/home
+      "expo-secure-store"
     ]
   }
 }

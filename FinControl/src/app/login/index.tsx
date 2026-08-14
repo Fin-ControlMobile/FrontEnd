@@ -1,7 +1,12 @@
-import { Text, TextInput,TouchableOpacity, View } from 'react-native'
+import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { router } from 'expo-router';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import { styles } from './styles';
 
+
+function acessar() {
+  router.push("/home")
+}
 
 export default function Login() {
   return (
@@ -15,10 +20,11 @@ export default function Login() {
         <View>
           <Text style={styles.textTitleBiometric}>Acesse sua conta</Text>
         </View>
-        <View>
-
+        <View style={styles.biometricButton}>
+          <TouchableOpacity onPress={acessar}>
+              <Image style={styles.imgBiometric}source={require("../../../assets/imgs/Biometria.png")}/>
+          </TouchableOpacity>
         </View>
-
         <View>
           <Text style={styles.textLogin}>Use sua biometria para continuar com segurança.</Text>
         </View>
@@ -55,17 +61,17 @@ export function LoginSemBiometria() {
           <View>
             {/* <Fontisto name="locked" size={20} color="#958ea0" style={styles.icon}/> */}
 
-            <TextInput 
+            <TextInput
               style={styles.inputLogin}
               placeholder="Insira sua senha"
               placeholderTextColor="#958ea0"
               secureTextEntry
-              
+
             />
           </View>
         </View>
 
-        <TouchableOpacity style={styles.buttonLogin}>
+        <TouchableOpacity style={styles.buttonLogin} onPress={acessar}>
           <Text style={styles.textButton}>Entrar</Text>
         </TouchableOpacity>
 

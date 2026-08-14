@@ -8,24 +8,12 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Colors } from './src/constants/theme';
 export default function App() {
 
-  const [loaded] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     JetBrainsMono_400Regular,
     Manrope_600SemiBold,
     Manrope_700Bold,
     Manrope_800ExtraBold
   })
-
-  if (!loaded) {
-    return null;
-  }
-
-
-  const [fontsLoaded, fontError] = useFonts({
-
-    Manrope_800ExtraBold,
-    JetBrainsMono_400Regular
-  });
-
 
   if (!fontsLoaded && !fontError) {
     return null;
@@ -35,7 +23,7 @@ export default function App() {
     <SafeAreaProvider>
       <View style={styles.container}>
         <StatusBar style='light' />
-        <Login />
+        <Login/>
       </View>
     </SafeAreaProvider>
 
