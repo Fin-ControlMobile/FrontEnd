@@ -27,28 +27,14 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "expo-font"
-=======
-      "expo-router",
       "expo-font",
-<<<<<<< HEAD
-      "expo-local-authentication",
-      {
-        "faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
-      }
->>>>>>> origin/feature/login
-=======
-      "expo-local-authentication"
->>>>>>> origin/feature/login
-=======
-      "expo-font"
->>>>>>> origin/feature/seguranca
-=======
-      "expo-font"
->>>>>>> origin/feature/home
+      "expo-router",
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
+        }
+      ]
     ]
   }
 }

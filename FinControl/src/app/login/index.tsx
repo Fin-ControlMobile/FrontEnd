@@ -1,6 +1,7 @@
-import { Text, TextInput,TouchableOpacity, View } from 'react-native'
+import { Text, TextInput, TouchableOpacity, View } from 'react-native'
 import Fontisto from '@expo/vector-icons/Fontisto';
 import { styles } from './styles';
+import { useRouter } from 'expo-router';
 
 
 export default function Login() {
@@ -30,6 +31,12 @@ export default function Login() {
 
 
 export function LoginSemBiometria() {
+  const router = useRouter();
+
+  function acessar() {
+    router.push("/home/home.tsx");
+  }
+
   return (
     <View style={styles.background}>
 
@@ -55,17 +62,17 @@ export function LoginSemBiometria() {
           <View>
             {/* <Fontisto name="locked" size={20} color="#958ea0" style={styles.icon}/> */}
 
-            <TextInput 
+            <TextInput
               style={styles.inputLogin}
               placeholder="Insira sua senha"
               placeholderTextColor="#958ea0"
               secureTextEntry
-              
+
             />
           </View>
         </View>
 
-        <TouchableOpacity style={styles.buttonLogin}>
+        <TouchableOpacity onPress={acessar} style={styles.buttonLogin}>
           <Text style={styles.textButton}>Entrar</Text>
         </TouchableOpacity>
 
