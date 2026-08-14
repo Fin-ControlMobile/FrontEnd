@@ -27,7 +27,16 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
+<<<<<<< HEAD
       "expo-font"
+=======
+      "expo-router",
+      "expo-font",
+      "expo-local-authentication",
+      {
+        "faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
+      }
+>>>>>>> origin/feature/login
     ]
   }
 }
