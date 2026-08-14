@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import Footer from "../../components/footer/footer";
 
-import { colors } from "../../const/const";
+import { colors } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function Seguranca() {
