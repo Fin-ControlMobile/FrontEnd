@@ -29,6 +29,7 @@
     "plugins": [
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "expo-font"
 =======
       "expo-router",
@@ -45,6 +46,9 @@
 =======
       "expo-font"
 >>>>>>> origin/feature/seguranca
+=======
+      "expo-font"
+>>>>>>> origin/feature/home
     ]
   }
 }
