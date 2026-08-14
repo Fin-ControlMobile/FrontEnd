@@ -3,14 +3,16 @@ import { colors } from '../../const/const';
 
 export const styles = StyleSheet.create({   
     container: {
+        flex: 1,
         flexDirection: "row",
         justifyContent: "space-around",
         width: "100%",
         height: "10%",
         alignItems: "center",
         backgroundColor: colors.superface,
-        borderTopEndRadius:40,
-        borderTopStartRadius:40
+        borderTopEndRadius:30,
+        borderTopStartRadius:30,
+        maxHeight: "15%"
     },
 
     activeItemContainer: {

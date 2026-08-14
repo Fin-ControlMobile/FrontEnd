@@ -5,7 +5,7 @@ import Header from './src/component/header/header';
 import { JetBrainsMono_400Regular } from '@expo-google-fonts/jetbrains-mono';
 import { Manrope_800ExtraBold, Manrope_700Bold, Manrope_600SemiBold } from '@expo-google-fonts/manrope';
 import { useFonts } from 'expo-font';
-import Home from './src/app/home/home';
+import Home from './src/app/home/index';
 export default function App() {
 
    const[loaded] = useFonts({

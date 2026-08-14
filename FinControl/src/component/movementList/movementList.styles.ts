@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     containerList: {
         backgroundColor: colors.superface,
         borderRadius: 30,
-        padding: 20,
+        paddingHorizontal: 20,
         alignItems: "center"
     },
     containerItem: {
