@@ -5,11 +5,14 @@ import { styles } from '../../styles/styles';
 import { useRouter } from 'expo-router';
 
 
-function acessar() {
-  router.push("/home")
-}
+
 
 export default function Login() {
+   const router = useRouter();
+  function acessar() {
+    router.push("/home")
+  }
+
   return (
     <View style={styles.background}>
       <View style={styles.titleLogin}>
@@ -23,7 +26,7 @@ export default function Login() {
         </View>
         <View style={styles.biometricButton}>
           <TouchableOpacity onPress={acessar}>
-              <Image style={styles.imgBiometric}source={require("../../../assets/imgs/Biometria.png")}/>
+            <Image style={styles.imgBiometric} source={require("../../../assets/imgs/Biometria.png")} />
           </TouchableOpacity>
         </View>
         <View>

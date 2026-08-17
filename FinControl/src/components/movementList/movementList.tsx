@@ -1,10 +1,18 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { styles } from './movementList.styles'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { useRouter } from 'expo-router';
 
 export default function MovementList() {
+    const router = useRouter();
+
+    function acessarDetalhes(){
+        router.push('/detalhes')
+    }
+
     return (
+        
         <View style={styles.containerList}>
             <View style={styles.containerItem}>
                 <View style={styles.transferDetails}>
@@ -20,7 +28,7 @@ export default function MovementList() {
             </View>
            <View style={styles.line}></View>
            
-           <View style={styles.containerItem}>
+           <TouchableOpacity style={styles.containerItem} onPress={acessarDetalhes}> 
                 <View style={styles.transferDetails}>
                     <View style={styles.containerIcon}>
                         <FontAwesome5 name="user-circle" size={30} color="#D4E4FA" />
@@ -31,7 +39,7 @@ export default function MovementList() {
                     </View>
                 </View>
                 <Text style={styles.money}>+R$ 3.500,00</Text>
-            </View>
+            </TouchableOpacity>
            <View style={styles.line}></View>
            <View style={styles.containerItem}>
                 <View style={styles.transferDetails}>

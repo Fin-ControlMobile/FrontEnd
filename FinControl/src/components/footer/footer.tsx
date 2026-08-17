@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AntDesign from '@expo/vector-icons/AntDesign';
@@ -9,32 +9,35 @@ import { styles } from './footer.styles';
 import { colors } from '../../constants/theme';
 import { useRouter } from 'expo-router';
 
-type TabName = 'bank' | 'wallet' | 'shield';
+// Exportamos o tipo para poder usar nas telas pai
+export type TabName = 'bank' | 'wallet' | 'shield';
 
 interface FooterProps {
+  activeTab: TabName; // Prop para definir qual ícone deve ficar ativo
+  onTabPress?: (tabName: TabName) => void; // Função opcional para callback ao clicar
   navigation?: {
     navigate: (screenName: string) => void;
   };
 }
 
-export default function Footer({ navigation }: FooterProps) {
-  const [activeTab, setActiveTab] = useState<TabName>();
-  const router = useRouter();
-  const [selecao, setSelecao] = useState<number>(0);
-  
-  // Captura as margens seguras do dispositivo
+export default function Footer({ activeTab, onTabPress, navigation }: FooterProps) {
   const insets = useSafeAreaInsets();
-
+  const router = useRouter();
   const handleTabPress = (tabName: TabName) => {
-    setActiveTab(tabName);
+    // Chama a função da prop caso seja passada
+    if (onTabPress) {
+      onTabPress(tabName);
+    }
+
+    // Navega para a tela
     navigation?.navigate(tabName);
   };
 
   return (
-    <View 
+    <View
       style={[
-        styles.container, 
-        { paddingBottom: Math.max(insets.bottom, 12) }
+        styles.container,
+        { paddingBottom: insets.bottom > 0 ? insets.bottom : 12 },
       ]}
     >
       {/* Item 1: Banco */}
@@ -44,15 +47,14 @@ export default function Footer({ navigation }: FooterProps) {
           activeTab === 'bank' && styles.activeItemContainer,
         ]}
         onPress={() => {
-          handleTabPress('bank');
-          setSelecao(0);
-          router.push("/home");
+          handleTabPress('bank')
+          router.push("/home")
         }}
       >
         <AntDesign
           name="bank"
           size={30}
-          color={activeTab === 'bank' ? colors.purpleEmphasis : '#958EA0'}
+          color={activeTab === 'bank' ? colors.purple : '#958EA0'}
         />
       </TouchableOpacity>
 
@@ -63,15 +65,14 @@ export default function Footer({ navigation }: FooterProps) {
           activeTab === 'wallet' && styles.activeItemContainer,
         ]}
         onPress={() => {
-          handleTabPress('wallet');
-          router.push("/movimentacoes");
-          setSelecao(1);
+          handleTabPress('wallet')
+          router.push("/movimentacoes")
         }}
       >
         <MaterialCommunityIcons
           name="wallet-outline"
           size={30}
-          color={activeTab === 'wallet' ? colors.purpleEmphasis : '#958EA0'}
+          color={activeTab === 'wallet' ? colors.purple : '#958EA0'}
         />
       </TouchableOpacity>
 
@@ -82,15 +83,15 @@ export default function Footer({ navigation }: FooterProps) {
           activeTab === 'shield' && styles.activeItemContainer,
         ]}
         onPress={() => {
-          handleTabPress('shield');
-          router.push("/seguranca");
-          setSelecao(2)
-        }}
+          handleTabPress('shield')
+          router.push("/seguranca")
+        }
+        }
       >
         <Ionicons
           name="shield-outline"
           size={30}
-          color={activeTab === 'shield' ? colors.purpleEmphasis : '#958EA0'}
+          color={activeTab === 'shield' ? colors.purple : '#958EA0'}
         />
       </TouchableOpacity>
     </View>

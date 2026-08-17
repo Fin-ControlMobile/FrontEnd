@@ -3,12 +3,19 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-nati
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Feather from '@expo/vector-icons/Feather';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 export default function Detalhes() {
+    const router = useRouter();
+
+    function voltar(){
+        router.push('/home')
+    }
+
     return (
         <ScrollView style={styles.body}>
             <View style={styles.header}>
-                <TouchableOpacity style={styles.iconeVoltar} >
+                <TouchableOpacity style={styles.iconeVoltar} onPress={voltar} >
                     <FontAwesome5 name="arrow-left" size={24} color="#D4E4FA" />
                 </TouchableOpacity>
                 <Text style={styles.h1}>Detalhes</Text>

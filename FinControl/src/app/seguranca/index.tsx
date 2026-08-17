@@ -50,7 +50,9 @@ export default function Seguranca() {
 
       </View>
 
-      <Footer />
+      <Footer 
+      activeTab="shield"
+      />
     </View>
   )
 }
