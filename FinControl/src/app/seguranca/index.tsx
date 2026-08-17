@@ -29,7 +29,7 @@ export default function Seguranca() {
           </View>
 
           <View style={styles.blocoEncerrar}>
-            <Image source={require('../../../assets/encerrarServico.png')} />
+            <Image source={require('../../../assets/imgs/encerrarServico.png')} />
             <Text style={styles.textoEncerrar}>Encerrar sessão</Text>
           </View>
         </View>
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     width: '100%',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    backgroundColor: colors.bgc
   },
   conteudo: {
     gap: 10,

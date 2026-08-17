@@ -18,7 +18,7 @@ export default function RootLayout(){
 
         <Stack.Screen
         name="detalhes/index"
-        options={{title:"Dashboard",
+        options={{title:"wallet",
         headerShown: false}}
         />
         <Stack.Screen
@@ -28,7 +28,7 @@ export default function RootLayout(){
         />
         <Stack.Screen
         name="seguranca/index"
-        options={{title:"Tela de Seguranca",
+        options={{title:"shield",
         headerShown: false}}
         />
     </Stack>
