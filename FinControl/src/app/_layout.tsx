@@ -31,6 +31,13 @@ export default function RootLayout(){
         options={{title:"shield",
         headerShown: false}}
         />
+
+        <Stack.Screen
+        name="cadastro/index"
+        options={{title:"cadastro",
+          headerShown: false
+        }}
+        />
     </Stack>
   );
 }

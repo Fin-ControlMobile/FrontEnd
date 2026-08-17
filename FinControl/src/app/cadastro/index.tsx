@@ -3,8 +3,13 @@ import { ScrollView, StyleSheet, Text, TextInput, TouchableHighlight, TouchableO
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { router } from 'expo-router';
 
 export default function Cadastro() {
+
+    function login() {
+        router.push("/login")
+    }
     return (
         <ScrollView style={styles.body}>
             <View style={styles.main}>
@@ -17,7 +22,7 @@ export default function Cadastro() {
                         <View style={styles.campo}>
                             <Text style={styles.label}>NOME COMPLETO</Text>
                             <View style={styles.inputContainer}>
-                               <FontAwesome name="user-o" size={24} color="#494454" />
+                                <FontAwesome name="user-o" size={24} color="#494454" />
                                 <TextInput
                                     placeholder="Seu nome"
                                     placeholderTextColor="#494454"
@@ -47,16 +52,16 @@ export default function Cadastro() {
                                 />
                             </View>
                         </View>
-                        <TouchableHighlight style={styles.botao}>
-                            <View>
-                                <Text style={styles.textoBotao}>CADASTRAR</Text>
-                            </View>
+                        <TouchableHighlight style={styles.botao} onPress={login}>
+                            <Text style={styles.textoBotao}>CADASTRAR</Text>
                         </TouchableHighlight>
                     </View>
                 </View>
                 <View style={styles.entrar} >
                     <Text style={styles.conta}>Já possui uma conta? </Text>
-                    <Text style={styles.textoEntrar}>Entrar</Text>
+                    <TouchableOpacity onPress={login} style={styles.btnEntrar}>
+                        <Text style={styles.textoEntrar}>Entrar</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </ScrollView>
@@ -158,5 +163,8 @@ const styles = StyleSheet.create({
     textoEntrar: {
         color: '#8B5CF6',
         fontSize: 18
+    },
+    btnEntrar: {
+        alignItems: 'center'
     }
 })

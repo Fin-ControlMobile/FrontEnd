@@ -7,8 +7,8 @@ import { useRouter } from 'expo-router';
 
 
 
-export default function Login() {
-   const router = useRouter();
+export function Login() {
+  const router = useRouter();
   function acessar() {
     router.push("/home")
   }
@@ -39,11 +39,15 @@ export default function Login() {
 
 
 
-export function LoginSemBiometria() {
+export default function LoginSemBiometria() {
   const router = useRouter();
 
   function acessar() {
     router.push("/home");
+  }
+
+  function acessarCadastro(){
+    router.push("/cadastro")
   }
 
   return (
@@ -85,7 +89,9 @@ export function LoginSemBiometria() {
 
         <View style={styles.Register}>
           <Text style={styles.textLogin}>Não tem uma Conta?</Text>
-          <Text style={styles.textRegister}> Cadastre-se</Text>
+          <TouchableOpacity onPress={acessarCadastro}>
+            <Text style={styles.textRegister}> Cadastre-se</Text>
+          </TouchableOpacity>
         </View>
       </View>
 

@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import { Manrope_600SemiBold, Manrope_700Bold, Manrope_800ExtraBold } from '@expo-google-fonts/manrope'
 import { JetBrainsMono_400Regular } from '@expo-google-fonts/jetbrains-mono';
-import Login, { LoginSemBiometria } from './src/app/login';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Colors } from './src/constants/theme';
+import LoginSemBiometria from './src/app/login';
 export default function App() {
 
   const [fontsLoaded, fontError] = useFonts({
