@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native"
-import { Colors, Text, Title } from "../constants/theme"
+import { colors, Text, Title } from "../constants/theme"
 
 
 export const styles = StyleSheet.create({
     background: {
        flex: 1,
-       backgroundColor: Colors.backgroundColor,
+       backgroundColor: colors.bgc,
        justifyContent: "center"
     },
     titleLogin: {
@@ -13,38 +13,38 @@ export const styles = StyleSheet.create({
     },
     textTitle:{
         ...Title,
-        color: Colors.purpleTitleColor,
+        color: colors.purpleTitleColor,
     },
     articleEmail:{
         margin: 10
     },
     textLogin: {
         ...Text,
-        color: Colors.textColor,
+        color: colors.colorFont,
         fontSize: 16,
         marginBottom: 8
     },
     articleLogin: {
-        backgroundColor: Colors.articleColor,
+        backgroundColor: colors.superface,
         margin:20,
         padding:20,
         borderRadius: 15,
         borderWidth: 2,
-        borderColor: Colors.loginBorderColor
+        borderColor: colors.loginBorderColor
     },
     icon:{
         marginLeft: 10
     },
     inputLogin: {
         borderRadius: 10,
-        borderColor: Colors.loginBorderColor,
+        borderColor: colors.loginBorderColor,
         borderWidth: 2,
         marginBottom: 10,
         paddingHorizontal: 10,
         
     },
     buttonLogin: {
-        backgroundColor: Colors.purpleTitleColor,
+        backgroundColor: colors.purpleTitleColor,
         alignItems: 'center',
         padding: 10,
         borderRadius: 8,
@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
     },
     textButton: {
         ...Text,
-        color: Colors.textButtonColor,
+        color: colors.purple,
         padding: 3,
     },
     Register:{
@@ -64,11 +64,11 @@ export const styles = StyleSheet.create({
     },
     textRegister: {
         ...Text,
-        color: Colors.purpleTitleColor,
+        color: colors.purpleTitleColor,
     },
     textTitleBiometric:{
         ...Title,
-        color: Colors.whiteTitleColor
+        color: colors.colorFontTile
     },
     imgBiometric:{
         alignSelf:"center"

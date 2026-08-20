@@ -2,26 +2,17 @@
 export const colors = {
     bgc: "#061626",
     purpleEmphasis: "#a078ff",
-    purple:"#340080", 
+    purple: "#340080",
     superface: "#132333",
+    purpleTitleColor: '#D0BCFF',
     exitRed: "#93000A",
     transitionRed: "#FFB4AB",
     transitionGreen: "#4EDEA3",
     colorFontTile: "#D4E4FA",
     colorFont: "#CBC3D7",
+    loginBorderColor: '#273647',
     gray: "#958EA0",
     white: "#FFFFFF",
-}
-
-export const Colors = {
-    backgroundColor: '#051424',
-    articleColor: '#122131',
-    purpleTitleColor: '#D0BCFF',
-    whiteTitleColor: '#D4E4FA',
-    textColor: '#CBC3D7',
-    textButtonColor: '#3C0091',
-    loginBorderColor: '#273647',
-    inputBorderColor: '#958ea0'
 }
 
 export const fonts = {

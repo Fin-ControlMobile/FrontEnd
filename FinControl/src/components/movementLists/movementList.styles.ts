@@ -50,6 +50,12 @@ export const styles = StyleSheet.create({
         fontSize: 15
     },
 
+    outcomeText: {
+        fontFamily: fonts.jetBrainsRegular,
+        color: colors.transitionRed,
+        fontSize: 15
+    },
+
     line: {
         height: 1,
         width: "100%",

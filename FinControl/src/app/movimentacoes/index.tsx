@@ -70,9 +70,9 @@ export default function Movimentacoes() {
           <View style={styles.tabela}>
             <Text style={styles.txtIndicativo}>Todas</Text>
             <View style={styles.tabelaCards}>
-              <CardMovimentacao />
-              <CardMovimentacao />
-              <CardMovimentacao />
+              {/* <CardMovimentacao /> */}
+              {/* <CardMovimentacao /> */}
+              {/* <CardMovimentacao /> */}
             </View>
           </View>
         </View>
