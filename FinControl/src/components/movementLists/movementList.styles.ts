@@ -46,14 +46,15 @@ export const styles = StyleSheet.create({
 
     money: {
         fontFamily: fonts.jetBrainsRegular,
-        color: colors.transitionGreen,
-        fontSize: 15
+        fontSize: 15,
     },
 
     outcomeText: {
-        fontFamily: fonts.jetBrainsRegular,
         color: colors.transitionRed,
-        fontSize: 15
+    },
+
+    incomeText: {
+        color: colors.transitionGreen,
     },
 
     line: {
