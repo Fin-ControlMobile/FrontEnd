@@ -4,14 +4,21 @@ import { styles } from '../../styles/home.styles'
 import Footer from '../../components/footer/footer'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import MovementList from '../../components/movementList/movementList';
+// import MovementList from '../../components/movementList/movementList';
 import Header from '../../components/header/header';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from 'expo-router';
+import { MOCK_TRANSACTIONS } from '../../mocks/transction.mock';
+import { transformApiToMovement } from '../../utils/formatters';
+import { RecentMovements } from '../../components/movementLists/recentMovements';
 
 
 export default function Home() {
   const router = useRouter();
+
+  const recentMovementsData = MOCK_TRANSACTIONS.map((item) => 
+    transformApiToMovement(item)
+  );
 
   function acessar(){
     router.push('/movimentacoes')
@@ -21,7 +28,9 @@ export default function Home() {
     <>
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         <View style={styles.containerMain}>
+          <View style={styles.containerHeader}>
           <Header />
+          </View>
           <View style={styles.containerBalance}>
             <View>
               <Text style={styles.BalanceTitle}>Saldo disponível</Text>
@@ -66,7 +75,9 @@ export default function Home() {
                 </TouchableOpacity>
               </View>
             </View>
-            <MovementList />
+            <RecentMovements
+            data={recentMovementsData} 
+            onItemPress={(id) => console.log("Clicou")}/>
           </View>
         </View>
       </SafeAreaView>

@@ -1,10 +1,15 @@
-import React from 'react'
-import { View } from 'react-native'
-import { recentMovementsProps } from '../../@types/movementLists';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import { MovementItem } from './movementItem';
 import { styles } from './movementList.styles';
+import { Movement } from '../../@types/movementLists';
 
-export function RecentMovements({ data, onItemPress }: recentMovementsProps) {
+interface Props {
+  data: Movement[];
+  onItemPress?: (id: string) => void;
+}
+
+export function RecentMovements({ data, onItemPress }: Props) {
   const recentData = data.slice(0, 4);
 
   return (
@@ -18,3 +23,4 @@ export function RecentMovements({ data, onItemPress }: recentMovementsProps) {
     </View>
   );
 }
+

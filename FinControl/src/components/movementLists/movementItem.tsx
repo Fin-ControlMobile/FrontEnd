@@ -1,7 +1,13 @@
-import { FontAwesome5 } from '@expo/vector-icons'
-import { styles } from './movementList.styles'
-import { Text, TouchableOpacity, View } from 'react-native'
-import { MovementItemProps } from '../../@types/movementLists';
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { Movement } from '../../@types/movementLists';
+import { styles } from './movementList.styles';
+
+interface MovementItemProps {
+  data: Movement;
+  onPress?: () => void;
+}
 
 export function MovementItem({ data, onPress }: MovementItemProps) {
   const isOutcome = data.type === 'outcome';

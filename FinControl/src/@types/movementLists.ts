@@ -29,13 +29,3 @@ export interface GroupedSection {
   title: string;
   data: Movement[];
 }
-
-export interface MovementItemProps {
-  data: Movement;
-  onPress?: () => void;
-}
-
-export interface recentMovementsProps {
-  data: Movement[];
-  onItemPress?: (id: string) => void;
-}

@@ -3,7 +3,7 @@ import { colors, fonts } from "../../constants/theme";
 
 export const styles = StyleSheet.create({
     container: {
-        height: "10%",
+        height: 40,
         width: "100%",
         flexDirection: "row",
         gap: 15,

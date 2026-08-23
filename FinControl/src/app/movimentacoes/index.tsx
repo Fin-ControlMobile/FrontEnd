@@ -6,81 +6,20 @@ import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
 import Footer from "../../components/footer/footer";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-const dados = [
-  { id: '1', name: 'Todas' },
-  { id: '2', name: 'Hoje' },
-  { id: '3', name: 'Ontem' },
-  { id: '4', name: 'Recentes' }
-];
+import { MovementsScreen } from "../../components/movementLists/movementScreen";
+import { MOCK_TRANSACTIONS } from "../../mocks/transction.mock";
+import { groupTransactionsByDate } from "../../utils/groupMovements";
 
 
 export default function Movimentacoes() {
-  const [filtroSelecionado, setFiltroSelecionado] = useState("Todas");
-
+  const groupedData = groupTransactionsByDate(MOCK_TRANSACTIONS);
 
   return (
     <>
-      <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
-
-        <View style={styles.headerMov}>
-          <Text style={styles.txtHeader}>Movimentacoes</Text>
-          <TouchableOpacity style={styles.btnNotif}><Ionicons size={20} name="notifications" color={colors.colorFont} /></TouchableOpacity>
-        </View>
-
-        <View style={styles.main}>
-          <View style={styles.filtros}>
-
-            <View style={styles.filtroText}>
-              <Ionicons name="search" size={24} color={colors.colorFont} />
-              <TextInput placeholderTextColor={colors.colorFont} placeholder="Buscar movimentacoes" style={styles.textFiltro} />
-            </View>
-
-
-            <View style={styles.selectContainer}>
-              <Ionicons
-                name="filter-outline"
-                size={20}
-                color={colors.colorFont}
-                pointerEvents="none"
-              />
-              <Picker
-                selectedValue={filtroSelecionado}
-                onValueChange={(itemValue) =>
-                  setFiltroSelecionado(itemValue)
-                }
-                dropdownIconColor={colors.colorFont}
-                style={styles.select}
-              >
-                {dados.map((item) => (
-                  <Picker.Item
-                    key={item.id}
-                    label={item.name}
-                    value={item.name}
-                    color={colors.colorFont}
-                    style={styles.item}
-                  />
-                ))}
-              </Picker>
-
-            </View>
-
-          </View>
-
-          <View style={styles.tabela}>
-            <Text style={styles.txtIndicativo}>Todas</Text>
-            <View style={styles.tabelaCards}>
-              {/* <CardMovimentacao /> */}
-              {/* <CardMovimentacao /> */}
-              {/* <CardMovimentacao /> */}
-            </View>
-          </View>
-        </View>
-
-        <Footer
-          activeTab="wallet"
-        />
-      </SafeAreaView>
+      <MovementsScreen 
+      sections={groupedData } 
+      onItemPress={(id) => console.log('Detalhes da transação:', id)}
+    />
     </>
   )
 }

@@ -4,9 +4,6 @@ import Fontisto from '@expo/vector-icons/Fontisto';
 import { styles } from '../../styles/styles';
 import { useRouter } from 'expo-router';
 
-
-
-
 export function Login() {
   const router = useRouter();
   function acessar() {

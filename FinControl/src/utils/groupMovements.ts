@@ -1,4 +1,4 @@
-import { GroupedSection, TransactionApiResponse } from '../@types/movementLists';
+import { TransactionApiResponse, GroupedSection } from '../@types/movementLists';
 import { transformApiToMovement } from './formatters';
 
 export function groupTransactionsByDate(

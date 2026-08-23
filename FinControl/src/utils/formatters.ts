@@ -1,4 +1,4 @@
-import { FontAwesomeName, Movement, TransactionApiResponse } from "../@types/movementLists";
+import { TransactionApiResponse, Movement, FontAwesomeName } from '../@types/movementLists';
 
 export function getIcon(formaPagamento: string = ''): FontAwesomeName {
   const map: Record<string, FontAwesomeName> = {

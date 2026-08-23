@@ -11,7 +11,12 @@ export const styles = StyleSheet.create({
 
     containerMain: {
         backgroundColor: colors.bgc,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        
+    },
+
+    containerHeader: {
+        marginVertical: 20
         
     },
 
