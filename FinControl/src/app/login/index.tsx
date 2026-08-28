@@ -3,13 +3,14 @@ import { router } from 'expo-router';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import { styles } from '../../styles/styles';
 import { useRouter } from 'expo-router';
+import { Splash } from '../../components/screens/Splash';
 
 
 function acessar() {
   router.push("/home")
 }
 
-export default function Login() {
+export function Login() {
   return (
     <View style={styles.background}>
       <View style={styles.titleLogin}>
@@ -36,7 +37,7 @@ export default function Login() {
 
 
 
-export function LoginSemBiometria() {
+export  default function LoginSemBiometria() {
   const router = useRouter();
 
   function acessar() {
@@ -45,7 +46,6 @@ export function LoginSemBiometria() {
 
   return (
     <View style={styles.background}>
-
       <View style={styles.titleLogin}>
         <Text style={styles.textTitle}>FinControl</Text>
         <Text style={styles.textLogin}>Seu Dinheiro. Seu controle</Text>
