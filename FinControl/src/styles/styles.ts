@@ -16,21 +16,21 @@ export const styles = StyleSheet.create({
         color: Colors.purpleTitleColor,
     },
     articleEmail:{
-        margin: 10
+        margin: 15
     },
     textLogin: {
         ...Text,
         color: Colors.textColor,
         fontSize: 16,
-        marginBottom: 8
+        marginBottom: 10,
     },
     articleLogin: {
         backgroundColor: Colors.articleColor,
-        margin:20,
-        padding:20,
+        margin:18,
+        padding:15,
         borderRadius: 15,
         borderWidth: 2,
-        borderColor: Colors.loginBorderColor
+        borderColor: Colors.loginBorderColor,
     },
     icon:{
         marginLeft: 10
@@ -39,16 +39,17 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
         borderColor: Colors.loginBorderColor,
         borderWidth: 2,
-        marginBottom: 10,
-        paddingHorizontal: 10,
-        
+        marginBottom: 15,
+        paddingHorizontal: 15,
+        height: 55
     },
     buttonLogin: {
         backgroundColor: Colors.purpleTitleColor,
         alignItems: 'center',
         padding: 10,
         borderRadius: 8,
-        margin: 12
+        margin: 15,
+        marginTop: 35
     },
     textButton: {
         ...Text,
@@ -59,15 +60,17 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignContent:'center',
         justifyContent: 'center',
-        padding: 5,
-        margin: 10
+        padding: 2,
+        margin: 8
     },
     textRegister: {
         ...Text,
+        textAlign:"center",
         color: Colors.purpleTitleColor,
     },
     textTitleBiometric:{
         ...Title,
+        textAlign:"center",
         color: Colors.whiteTitleColor
     },
     imgBiometric:{
@@ -75,8 +78,12 @@ export const styles = StyleSheet.create({
     },
     biometricButton:{
         marginVertical: 40
-    }
-
-
-
+    },
+    textLoginBiometria: {
+        ...Text,
+        color: Colors.textColor,
+        fontSize: 16,
+        marginBottom: 10,
+        textAlign: "center"
+    },
 })

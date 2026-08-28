@@ -39,7 +39,7 @@ export const Fonts = {
 
 export const Title = {
     fontSize: 50,
-    fontFamily: Fonts.bold
+    fontFamily: Fonts.bold,
 }
 
 export const Text = {
