@@ -1,12 +1,17 @@
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Alert, Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { styles } from '../../styles/styles';
 import { useRouter } from 'expo-router';
-
+import { authenticateUser } from '../../services/auth/biometricService';
 
 export default function Login() {
   const router = useRouter();
-  function acessar() {
-    router.push("/home");
+  async function acessar() {
+    const autenticado = await authenticateUser();
+    if(autenticado){
+      router.push("/home");
+    }else{
+      Alert.alert("Erro!","Autenticacao Invalida");
+    }
   }
   function acessarLoginSemBiometria(){
     router.push("/login/loginSemBiometria");
@@ -39,3 +44,5 @@ export default function Login() {
     </View>
   )
 }
+
+
