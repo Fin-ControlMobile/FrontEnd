@@ -42,6 +42,8 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({children}) 
             setToken(resposta.token)
             setUsuario(decodificarToken(resposta.token))
         }
+
+        console.log(resposta)
     }
 
     async function logout() {

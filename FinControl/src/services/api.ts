@@ -15,9 +15,7 @@ export const api = axios.create({
 console.log(api.defaults.baseURL)
 
 api.interceptors.request.use(async (config) => {
-    console.log("interceptor rodando")
     const token = await AsyncStorage.getItem(process.env.EXPO_PUBLIC_TOKEN_KEY);
-    console.log("token do storage:", token)
 
     if(token){
         config.headers.Authorization = `Bearer ${token}`
