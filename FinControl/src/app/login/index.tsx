@@ -5,6 +5,7 @@ import { authenticateUser } from '../../services/auth/biometricService';
 
 export default function Login() {
   const router = useRouter();
+  
   async function acessar() {
     const autenticado = await authenticateUser();
     if(autenticado){

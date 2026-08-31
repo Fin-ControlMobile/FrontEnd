@@ -4,6 +4,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { router } from 'expo-router';
+import { Colors } from '../../constants/theme';
 
 export default function Cadastro() {
 
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
 
     form: {
         alignItems: 'center',
-        backgroundColor: '#1C1926',
+        backgroundColor: Colors.articleColor,
         width: '90%',
         marginTop: 40,
         borderRadius: 20
@@ -113,6 +114,7 @@ const styles = StyleSheet.create({
         margin: 20,
         width: '90%',
         gap: 30,
+        
     },
 
     campo: {
