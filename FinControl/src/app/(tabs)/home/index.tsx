@@ -1,11 +1,11 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { styles } from '../../styles/home.styles'
-import Footer from '../../components/footer/footer'
+import { styles } from '../../../styles/home.styles'
+import Footer from '../../../components/footer/footer'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import MovementList from '../../components/movementList/movementList';
-import Header from '../../components/header/header';
+import MovementList from '../../../components/movementList/movementList';
+import Header from '../../../components/header/header';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from 'expo-router';
 

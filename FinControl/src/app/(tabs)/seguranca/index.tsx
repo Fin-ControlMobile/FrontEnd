@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import Footer from "../../components/footer/footer";
+import Footer from "../../../components/footer/footer";
 
-import { colors } from "../../constants/theme";
+import { colors } from "../../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function Seguranca() {
@@ -29,7 +29,7 @@ export default function Seguranca() {
           </View>
 
           <View style={styles.blocoEncerrar}>
-            <Image source={require('../../../assets/imgs/encerrarServico.png')} />
+            <Image source={require('../../../../assets/imgs/encerrarServico.png')} />
             <Text style={styles.textoEncerrar}>Encerrar sessão</Text>
           </View>
         </View>

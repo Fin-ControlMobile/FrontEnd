@@ -1,10 +1,10 @@
 import { FlatList, FlatListComponent, Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
-import CardMovimentacao from "../../components/cardMovimentacao/cardMovimentacao"
+import CardMovimentacao from "../../../components/cardMovimentacao/cardMovimentacao"
 import { Ionicons } from "@expo/vector-icons"
-import { colors, fonts } from "../../constants/theme"
+import { colors, fonts } from "../../../constants/theme"
 import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
-import Footer from "../../components/footer/footer";
+import Footer from "../../../components/footer/footer";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const dados = [

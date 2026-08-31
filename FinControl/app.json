@@ -4,9 +4,9 @@
     "slug": "FinControl",
     "version": "1.0.0",
     "orientation": "portrait",
-    "scheme":"FinControl",
+    "scheme": "FinControl",
     "experiments": {
-        "typedRoutes":true
+      "typedRoutes": true
     },
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -28,13 +28,13 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-font",
-      "expo-router",
-      "expo-local-authentication",
-      "expo-secure-store"
-    ]
+        "favicon": "./assets/favicon.png"
+      },
+      "plugins": [
+        "expo-font",
+        "expo-router",
+        "expo-local-authentication",
+        "expo-secure-store"
+      ]
+    }
   }
-}

@@ -52,7 +52,6 @@ export default function LoginSemBiometria() {
 
   return (
     <View style={styles.background}>
-
       <View style={styles.titleLogin}>
         <Text style={styles.textTitle}>FinControl</Text>
         <Text style={styles.textLogin}>Seu Dinheiro. Seu controle</Text>
