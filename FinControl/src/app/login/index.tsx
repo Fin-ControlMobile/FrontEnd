@@ -1,17 +1,15 @@
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Alert, Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { router } from 'expo-router';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import { styles } from '../../styles/styles';
 import { useRouter } from 'expo-router';
+import { useAuth } from '../../context/AuthContext';
+import { useState } from 'react';
 
 
 
 
 export function Login() {
-  const router = useRouter();
-  function acessar() {
-    router.push("/home")
-  }
 
   return (
     <View style={styles.background}>
@@ -25,7 +23,7 @@ export function Login() {
           <Text style={styles.textTitleBiometric}>Acesse sua conta</Text>
         </View>
         <View style={styles.biometricButton}>
-          <TouchableOpacity onPress={acessar}>
+          <TouchableOpacity>
             <Image style={styles.imgBiometric} source={require("../../../assets/imgs/Biometria.png")} />
           </TouchableOpacity>
         </View>
@@ -40,13 +38,40 @@ export function Login() {
 
 
 export default function LoginSemBiometria() {
-  const router = useRouter();
 
-  function acessar() {
-    router.push("/home");
+  const router = useRouter()
+
+  const { login } = useAuth()
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("")
+  const [loading, setLoading] = useState(false);
+
+  async function acessar() {
+    const emailDigitado = email.trim();
+    const senhaDigitada = senha.trim();
+
+
+    if (!emailDigitado || !senhaDigitada) {
+      Alert.alert("Atenção ⚠👀", "Por favor, preencha o e-mail e senha.");
+      return;
+    }
+
+    try {
+      setLoading(true)
+      await login({ email: emailDigitado, senha: senhaDigitada })
+      router.replace('/home')
+    } catch (error: any) {
+      const mensagem =
+        error?.respons?.data?.message ||
+        "E-mail ou senha inválidos. Tente novamente.";
+        Alert.alert("Erro ao entrar", typeof mensagem === "string" ? mensagem : "Erro inesperado.");
+    } finally{
+      setLoading(false)
+    }
+
   }
 
-  function acessarCadastro(){
+  function acessarCadastro() {
     router.push("/cadastro")
   }
 
@@ -67,7 +92,9 @@ export default function LoginSemBiometria() {
             <TextInput style={styles.inputLogin}
               placeholder="email@email.com"
               placeholderTextColor="#958ea0"
-            />
+              value={email}
+              onChangeText={setEmail}
+            ></TextInput>
           </View>
         </View>
         <View style={styles.articleEmail}>
@@ -79,12 +106,18 @@ export default function LoginSemBiometria() {
               placeholder="Insira sua senha"
               placeholderTextColor="#958ea0"
               secureTextEntry
-            />
+              value={senha}
+              onChangeText={setSenha}
+            ></TextInput>
           </View>
         </View>
 
-        <TouchableOpacity style={styles.buttonLogin} onPress={acessar}>
-          <Text style={styles.textButton}>Entrar</Text>
+        <TouchableOpacity style={styles.buttonLogin} onPress={acessar} disabled={loading}>
+          {loading ? (
+            <ActivityIndicator color="#FFFFFFF"/>
+          ) : (
+            <Text style={styles.textButton}>Entrar</Text>
+          )}
         </TouchableOpacity>
 
         <View style={styles.Register}>

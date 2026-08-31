@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { checkBiometricCompatibility, authenticateUser } from '../services/auth/biometricService';
 
+export {useAuth} from '../context/AuthContext' 
+
 export function useBiometrics() {
   const [isCompatible, setIsCompatible] = useState<boolean>(false);
   const [checkingHardware, setCheckingHardware] = useState<boolean>(true);
