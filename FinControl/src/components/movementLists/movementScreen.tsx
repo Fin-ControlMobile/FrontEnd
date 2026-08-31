@@ -3,6 +3,7 @@ import { View, Text, FlatList, TextInput, TouchableOpacity, StyleSheet } from 'r
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { MovementItem } from './movementItem';
 import { GroupedSection } from '../../@types/movementLists';
+import { colors, fonts } from '../../constants/theme';
 
 interface Props {
   sections: GroupedSection[];
@@ -52,7 +53,7 @@ export const styles = StyleSheet.create({
   containerList: {
     paddingHorizontal: 16,
     paddingBottom: 32,
-    backgroundColor: '#091522',
+    backgroundColor: colors.bgc,
     flexGrow: 1,
   },
   containerHeader: {
@@ -66,7 +67,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#152335',
+    backgroundColor: colors.superface,
     borderRadius: 12,
     paddingHorizontal: 14,
     height: 48,
@@ -78,7 +79,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
   },
   buttonFilter: {
-    backgroundColor: '#152335',
+    backgroundColor: colors.superface,
     width: 48,
     height: 48,
     borderRadius: 12,
@@ -89,14 +90,13 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   titleSection: {
-    color: '#8E8E93',
-    fontSize: 12,
-    fontWeight: '600',
-    marginBottom: 8,
-    letterSpacing: 0.5,
+        fontFamily: fonts.manropBold,
+        color: colors.colorFont,
+        fontSize: 17,
+        paddingBottom: 10
   },
   containerCard: {
-    backgroundColor: '#111D2C',
+    backgroundColor: colors.superface,
     borderRadius: 16,
     paddingVertical: 4,
     paddingHorizontal: 16,

@@ -1,14 +1,12 @@
-import { FlatList, FlatListComponent, Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
-import CardMovimentacao from "../../components/cardMovimentacao/cardMovimentacao"
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import { colors, fonts } from "../../constants/theme"
-import { useState } from "react";
-import { Picker } from "@react-native-picker/picker";
-import Footer from "../../components/footer/footer";
-import { SafeAreaView } from "react-native-safe-area-context";
+
 import { MovementsScreen } from "../../components/movementLists/movementScreen";
 import { MOCK_TRANSACTIONS } from "../../mocks/transction.mock";
 import { groupTransactionsByDate } from "../../utils/groupMovements";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Footer from "../../components/footer/footer";
 
 
 export default function Movimentacoes() {
@@ -16,13 +14,26 @@ export default function Movimentacoes() {
 
   return (
     <>
-      <MovementsScreen 
-      sections={groupedData } 
-      onItemPress={(id) => console.log('Detalhes da transação:', id)}
-    />
+      <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
+        <View style={styles.headerMov}>
+          <Text style={styles.txtHeader}>Movimentacoes</Text>
+        </View>
+        <MovementsScreen
+          sections={groupedData}
+          onItemPress={(id) => console.log('Detalhes da transação:', id)}
+        />
+      </SafeAreaView>
+            <View style={styles.containerFooter}>
+              <Footer 
+              activeTab='wallet'
+              />
+            </View>
     </>
   )
 }
+
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -37,9 +48,8 @@ const styles = StyleSheet.create({
   ,
   headerMov: {
     backgroundColor: colors.superface,
-    height: '10%',
-    justifyContent: 'space-around',
-    padding: '2%',
+    padding: 20,
+    justifyContent: 'flex-start',
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
@@ -47,8 +57,9 @@ const styles = StyleSheet.create({
   },
   txtHeader: {
     color: colors.purpleEmphasis,
-    fontSize: 25,
-    fontFamily: fonts.manropExtraBold
+    fontSize: 24,
+    fontWeight: 'bold',
+    fontFamily: 'Manrope_700Bold'
   },
   textFiltro: {
     color: colors.colorFont,
@@ -121,5 +132,8 @@ const styles = StyleSheet.create({
   item: {
     backgroundColor: colors.superface,
     borderRadius: 10,
-  }
+  },
+    containerFooter: {
+        backgroundColor: colors.bgc
+    }
 })

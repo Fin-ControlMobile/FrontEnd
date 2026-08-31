@@ -24,8 +24,10 @@ export const styles = StyleSheet.create({
 
     containerIcon: {
         backgroundColor: "rgba(255,255,255, 0.1)",
-        padding: 8,
-        borderRadius: 100
+        padding: 12,
+        borderRadius: 100,
+        alignItems: "center",
+        justifyContent: "center"
     },
 
     details: {
