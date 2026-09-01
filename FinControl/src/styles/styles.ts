@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
     },
     inputLogin: {
         borderRadius: 10,
-        borderColor: Colors.loginBorderColor,
+        borderColor: 'rgba(208, 188, 255, 0.5)',
         borderWidth: 2,
         marginBottom: 15,
         paddingHorizontal: 15,
