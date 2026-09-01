@@ -9,7 +9,7 @@ import { Colors } from '../../constants/theme';
 export default function Cadastro() {
 
     function login() {
-        router.push("/login")
+        router.push("/login/loginSemBiometria")
     }
     return (
         <ScrollView style={styles.body}>

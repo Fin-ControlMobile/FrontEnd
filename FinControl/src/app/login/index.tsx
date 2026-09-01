@@ -1,19 +1,46 @@
 import { Alert, Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { styles } from '../../styles/styles';
 import { useRouter } from 'expo-router';
-import { authenticateUser } from '../../services/auth/biometricService';
+import {useBiometrics} from '../../hooks/useBiometrics';
+import { useEffect, useRef } from 'react';
+import { useState } from 'react';
 
 export default function Login() {
   const router = useRouter();
-  
-  async function acessar() {
-    const autenticado = await authenticateUser();
-    if(autenticado){
-      router.push("/home");
-    }else{
-      Alert.alert("Erro!","Autenticacao Invalida");
+
+ const { triggerAuth } = useBiometrics();
+
+  const [attempts, setAttempts] = useState(0);
+  const [authenticating, setAuthenticating] = useState(false);
+
+  async function checkAcesso() {
+    if (attempts >= 3 || authenticating) {
+      return;
+    }
+
+    setAuthenticating(true);
+
+    const authenticated = await triggerAuth(
+      'Autentique-se para acessar o FinControl'
+    );
+
+    setAuthenticating(false);
+
+    if (authenticated) {
+      router.replace('/home');
+      return;
+    }
+
+    const newAttempts = attempts + 1;
+
+    setAttempts(newAttempts);
+
+    if (newAttempts >= 3) {
+      router.replace('/login/loginSemBiometria');
     }
   }
+ 
+  
   function acessarLoginSemBiometria(){
     router.push("/login/loginSemBiometria");
   }
@@ -30,15 +57,15 @@ export default function Login() {
           <Text style={styles.textTitleBiometric}>Acesse sua conta</Text>
         </View>
         <View style={styles.biometricButton}>
-          <TouchableOpacity onPress={acessar}>
+          <TouchableOpacity onPress={checkAcesso}>
             <Image style={styles.imgBiometric} source={require("../../../assets/imgs/Biometria.png")} />
           </TouchableOpacity>
         </View>
-        <View>
+        <View style={styles.textAccess}>
           <Text style={styles.textLoginBiometria}>Use sua biometria para continuar com segurança.</Text>
-          <Text style={styles.textLoginBiometria}>Primeiro Acesso?</Text> 
+          <Text style={styles.textAccess}>Primeiro Acesso?</Text> 
           <TouchableOpacity onPress={acessarLoginSemBiometria}>
-            <Text style={styles.textRegister}>Realize o login sem biometria</Text>
+            <Text style={styles.textRegister}>Realize o Login sem Biometria</Text>
           </TouchableOpacity>
         </View>
       </View>

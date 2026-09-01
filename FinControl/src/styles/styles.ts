@@ -22,7 +22,14 @@ export const styles = StyleSheet.create({
         ...Text,
         color: Colors.textColor,
         fontSize: 16,
+        marginBottom: 15,
+    },
+    textRedirect:{
+        ...Text,
+        color: Colors.textColor,
         marginBottom: 10,
+        fontSize: 14,
+        textAlign:"center"
     },
     articleLogin: {
         backgroundColor: Colors.articleColor,
@@ -41,15 +48,16 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         marginBottom: 15,
         paddingHorizontal: 15,
-        height: 55
+        height: 55,
+        color: Colors.purpleTitleColor
     },
     buttonLogin: {
         backgroundColor: Colors.purpleTitleColor,
         alignItems: 'center',
-        padding: 10,
+        padding: 12,
         borderRadius: 8,
-        margin: 15,
-        marginTop: 35
+        margin: 16,
+        marginTop: 25, 
     },
     textButton: {
         ...Text,
@@ -61,11 +69,19 @@ export const styles = StyleSheet.create({
         alignContent:'center',
         justifyContent: 'center',
         padding: 2,
-        margin: 8
+        margin: 10,
+        marginTop:20
+    },
+    RegisterAccess:{
+        alignContent:'center',
+        justifyContent: 'center',
+        padding: 2,
+        margin: 10
     },
     textRegister: {
         ...Text,
-        textAlign:"center",
+        fontSize: 14,
+        textAlign: "center",
         color: Colors.purpleTitleColor,
     },
     textTitleBiometric:{
@@ -81,9 +97,17 @@ export const styles = StyleSheet.create({
     },
     textLoginBiometria: {
         ...Text,
+        padding: 10,
         color: Colors.textColor,
         fontSize: 16,
-        marginBottom: 10,
+        marginBottom: 15,
         textAlign: "center"
     },
+    textAccess:{
+        ...Text,
+        padding:5,
+        color: Colors.textColor,
+        fontSize: 14,
+        textAlign: "center"
+    }
 })

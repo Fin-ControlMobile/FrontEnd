@@ -22,8 +22,9 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <View style={styles.container}>
-        <StatusBar style='light' />
-        <LoginSemBiometria/>
+        <StatusBar 
+        backgroundColor={Colors.purpleTitleColor}
+        />
       </View>
     </SafeAreaProvider>
 
