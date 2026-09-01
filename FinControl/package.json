@@ -9,6 +9,13 @@
     "web": "expo start --web"
   },
   "dependencies": {
+<<<<<<< HEAD
+    "@expo/vector-icons": "^15.0.3",
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "axios": "^1.20.0",
+    "expo": "~54.0.35",
+    "expo-router": "~6.0.24",
+=======
     "@expo-google-fonts/hanken-grotesk": "^0.4.3",
     "@expo-google-fonts/jetbrains-mono": "^0.4.1",
     "@expo-google-fonts/manrope": "^0.4.2",
@@ -24,15 +31,20 @@
     "expo-router": "~6.0.24",
     "expo-secure-store": "~15.0.8",
     "expo-splash-screen": "~31.0.13",
+>>>>>>> 5971a819e14ca3dd47b5057231ab95c96db9cbe4
     "expo-status-bar": "~3.0.9",
     "jwt-decode": "^4.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native": "0.81.5",
+<<<<<<< HEAD
+    "react-native-screens": "~4.16.0"
+=======
     "react-native-paper": "^5.15.3",
     "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0",
     "react-native-web": "^0.21.0"
+>>>>>>> 5971a819e14ca3dd47b5057231ab95c96db9cbe4
   },
   "devDependencies": {
     "@types/react": "~19.1.0",

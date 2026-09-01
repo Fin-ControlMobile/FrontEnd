@@ -1,15 +1,46 @@
-import React from 'react'
-import { ScrollView, StyleSheet, Text, TextInput, TouchableHighlight, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
+import { Alert, ScrollView, StyleSheet, Text, TextInput, TouchableHighlight, TouchableOpacity, View } from 'react-native'
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { router } from 'expo-router';
+import { useCadastro } from '../../hooks/useCadastro';
+import { UsuarioCadastro } from '../../@types';
+
 
 export default function Cadastro() {
 
-    function login() {
+    const { cadastroUsuario } = useCadastro();
+    const [nome, setNome] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [senha, setSenha] = useState<string>("");
+
+    async function handleSalvar() {
+        if (!nome.trim() || !email.trim() || !senha.trim()) {
+            Alert.alert("Atenção", "Preencha todos os campos obrigatórios (*).");
+            return;
+        }
+        const novoUsuario: UsuarioCadastro = {
+            nome: nome,
+            email: email,
+            senha: senha
+        }
+        const sucesso = await cadastroUsuario(novoUsuario)
+        
+
+        if (sucesso) {
+            setNome("");
+            setEmail("");
+            setSenha("");
+            router.push("/login")
+        }
+    }
+
+    function acessarLogin(){
         router.push("/login")
     }
+
+
     return (
         <ScrollView style={styles.body}>
             <View style={styles.main}>
@@ -22,11 +53,13 @@ export default function Cadastro() {
                         <View style={styles.campo}>
                             <Text style={styles.label}>NOME COMPLETO</Text>
                             <View style={styles.inputContainer}>
-                                <FontAwesome name="user-o" size={24} color="#494454" />
+                               <FontAwesome name="user-o" size={24} color="#494454" />
                                 <TextInput
                                     placeholder="Seu nome"
                                     placeholderTextColor="#494454"
                                     style={styles.input}
+                                    onChangeText={setNome}
+                                    value={nome}
                                 />
                             </View>
                         </View>
@@ -38,6 +71,8 @@ export default function Cadastro() {
                                     placeholder="seu@email.com"
                                     placeholderTextColor="#494454"
                                     style={styles.input}
+                                    onChangeText={setEmail}
+                                    value={email}
                                 />
                             </View>
                         </View>
@@ -49,19 +84,27 @@ export default function Cadastro() {
                                     placeholder="********"
                                     placeholderTextColor="#494454"
                                     style={styles.input}
+                                    onChangeText={setSenha}
+                                    value={senha}
                                 />
                             </View>
                         </View>
-                        <TouchableHighlight style={styles.botao} onPress={login}>
+
+                    
+                        <TouchableHighlight style={styles.botao} onPress={handleSalvar}>
                             <Text style={styles.textoBotao}>CADASTRAR</Text>
+
                         </TouchableHighlight>
                     </View>
                 </View>
                 <View style={styles.entrar} >
                     <Text style={styles.conta}>Já possui uma conta? </Text>
-                    <TouchableOpacity onPress={login} style={styles.btnEntrar}>
+
+            
+                    <TouchableOpacity onPress={acessarLogin} style={styles.entrar}>
                         <Text style={styles.textoEntrar}>Entrar</Text>
                     </TouchableOpacity>
+
                 </View>
             </View>
         </ScrollView>
@@ -136,7 +179,7 @@ const styles = StyleSheet.create({
     input: {
         flex: 1,
         height: 48,
-        color: '#000',
+        color: '#636262',
     },
 
     botao: {
@@ -163,8 +206,5 @@ const styles = StyleSheet.create({
     textoEntrar: {
         color: '#8B5CF6',
         fontSize: 18
-    },
-    btnEntrar: {
-        alignItems: 'center'
     }
 })
