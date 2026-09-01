@@ -13,6 +13,7 @@ export interface TransactionApiResponse {
   remetente: string;
   destinatario: string;
   formaPagamento: string;
+  map: (item: TransactionApiResponse) => Promise<void>;
 }
 
 // Modelo interno formatado para exibição na UI
