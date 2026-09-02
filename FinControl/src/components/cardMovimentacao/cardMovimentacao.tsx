@@ -1,8 +1,9 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import { colors, fonts } from "../../constants/theme";
+import { TransacaoResponse } from "../../@types/autenticacao";
 
 
-export default function CardMovimentacao() {
+export default function CardMovimentacao({transacaoId, dataTransacao, valorTransferencia, descricao,destinatario, remetente,}: TransacaoResponse) {
     return (
         <View style={styles.card}>
             <View style={styles.areaIcone}>
@@ -11,10 +12,10 @@ export default function CardMovimentacao() {
 
             <View style={styles.infoCard}>
                 <Text style={styles.estabelecimento}>Supermercado Extra</Text>
-                <Text style={styles.data}>09:42 . Alimentacao</Text>
+                <Text style={styles.data}>{dataTransacao} . Alimentacao</Text>
             </View>
             <View>
-                <Text style={styles.preco}>-R$ 145,00</Text>
+                <Text style={styles.preco}>{valorTransferencia}</Text>
             </View>
         </View>
     )

@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         marginBottom: 10,
         paddingHorizontal: 10,
-        color: Colors.textColor,
+        color: 'white',
     },
     buttonLogin: {
         backgroundColor: colors.purpleTitleColor,
