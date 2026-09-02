@@ -43,7 +43,7 @@ export function useDetalhesTransacao(id: string) {
             currency: 'BRL',
         }).format(Math.abs(valor));
 
-        return isNegativo ? `- ${valorFormatado}` : `+ ${valorFormatado}`;
+        return isNegativo ? `- ${valorFormatado}` : `${valorFormatado}`;
     }
 
     useEffect(() => {

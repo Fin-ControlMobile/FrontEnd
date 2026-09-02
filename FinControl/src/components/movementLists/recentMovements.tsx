@@ -16,7 +16,7 @@ export function RecentMovements({ data, onItemPress }: Props) {
     <View style={styles.containerList}>
       {recentData.map((item, index) => (
         <React.Fragment key={item.id}>
-          <MovementItem data={item} onPress={() => onItemPress?.(item.id)} />
+          <MovementItem data={item} />
           {index < recentData.length - 1 && <View style={styles.line} />}
         </React.Fragment>
       ))}
