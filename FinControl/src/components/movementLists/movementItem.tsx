@@ -12,10 +12,13 @@ interface MovementItemProps {
 export function MovementItem({ data}: MovementItemProps) {
   const isOutcome = data.type === 'outcome';
 
-  function direcionarDetalhes(){
+function direcionarDetalhes(){
     console.log(data.id)
-    router.push(`/detalhes/${data.id}`);
-  }
+    router.push({
+        pathname: '/detalhes/[id]',
+        params: { id: data.id }
+    });
+}
 
   return (
     <TouchableOpacity
