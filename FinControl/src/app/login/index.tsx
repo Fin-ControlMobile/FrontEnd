@@ -36,7 +36,7 @@ export default function Login() {
     setAttempts(newAttempts);
 
     if (newAttempts >= 3) {
-      router.replace('/login/loginSemBiometria');
+      router.replace("/login/loginSemBiometria");
     }
   }
  

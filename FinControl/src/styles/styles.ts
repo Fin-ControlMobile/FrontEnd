@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
         color: Colors.purpleTitleColor
     },
     buttonLogin: {
-        backgroundColor: Colors.purpleTitleColor,
+        backgroundColor: Colors.colorButton,
         alignItems: 'center',
         padding: 12,
         borderRadius: 8,
@@ -61,7 +61,7 @@ export const styles = StyleSheet.create({
     },
     textButton: {
         ...Text,
-        color: Colors.textButtonColor,
+        color: Colors.whiteTitleColor,
         padding: 3,
     },
     Register:{
