@@ -36,14 +36,14 @@ export function useDetalhesTransacao(id: string) {
     }
 
     function formatarValor(valor: number): string {
-        const isNegativo = valor < 0;
+        const ehNegativo = valor < 0;
 
         const valorFormatado = new Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: 'BRL',
         }).format(Math.abs(valor));
 
-        return isNegativo ? `- ${valorFormatado}` : `${valorFormatado}`;
+        return ehNegativo ? `- ${valorFormatado}` : `${valorFormatado}`;
     }
 
     useEffect(() => {
