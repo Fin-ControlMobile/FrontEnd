@@ -4,9 +4,9 @@
     "slug": "FinControl",
     "version": "1.0.0",
     "orientation": "portrait",
-    "scheme":"FinControl",
+    "scheme": "FinControl",
     "experiments": {
-        "typedRoutes":true
+      "typedRoutes": true
     },
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -25,7 +25,12 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT"
+      ],
+      "package": "com.henriquebrm.FinControl"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -35,6 +40,12 @@
       "expo-router",
       "expo-local-authentication",
       "expo-secure-store"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "4666cecb-66a6-4bc6-955d-a81809d0b1f0"
+      }
+    }
   }
 }
