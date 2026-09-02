@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { AuthContextData, Login, Usuario, UsuarioPayload } from "../@types/autenticacao";
-import { jwtDecode } from "jwt-decode";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { autenticacaoService } from "../services/auth/autenticacaoService";
 import { router } from "expo-router";
+import { jwtDecode } from "jwt-decode"
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData)
 
@@ -36,6 +36,8 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({children}) 
     }, [])
 
     async function login(dados: Login) {
+        console.log(dados.email)
+        console.log(dados.senha)
         const resposta = await autenticacaoService.login(dados)
 
         if(resposta.token){

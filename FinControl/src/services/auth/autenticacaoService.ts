@@ -8,8 +8,6 @@ export const autenticacaoService = {
         console.log(data)
         if(data.token){
             await AsyncStorage.setItem(process.env.EXPO_PUBLIC_TOKEN_KEY, data.token)
-        }else{
-            console.log("Nao achei")
         }
         
         return data
