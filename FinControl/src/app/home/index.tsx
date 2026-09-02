@@ -11,10 +11,14 @@ import { transformApiToMovement } from '../../utils/formatters';
 import { RecentMovements } from '../../components/movementLists/recentMovements';
 import { transactionService } from '../../services/transactionService';
 import { Movement } from '../../@types/movementLists';
-
+import { useBalance } from '../../hooks/useBalance';
 
 export default function Home() {
   const router = useRouter();
+
+  // Desestrutura os valores e ações diretamente do custom hook
+  const { balanceData, showBalance, toggleShowBalance } = useBalance();
+
   const [movements, setMovements] = useState<Movement[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -53,33 +57,45 @@ export default function Home() {
             <View>
               <Text style={styles.BalanceTitle}>Saldo disponível</Text>
               <View style={styles.containerMoney}>
-                <Text style={styles.money}>R$ 5.240,80</Text>
-                <Ionicons name="eye-outline" size={24} color="white" />
+                <Text style={styles.money}>
+                  {showBalance ? balanceData.formattedBalance : '••••••'}
+                </Text>
+                <TouchableOpacity onPress={toggleShowBalance} activeOpacity={0.7}>
+                  <Ionicons 
+                    name={showBalance ? "eye-outline" : "eye-off-outline"} 
+                    size={24} 
+                    color="white" 
+                  />
+                </TouchableOpacity>
               </View>
             </View>
 
-            <View style={styles.line}></View>
+            <View style={styles.line} />
 
             <View style={styles.containerTransitions}>
               <View style={styles.transitions}>
                 <View style={styles.containerIcon}>
-                  <FontAwesome6 name="arrow-up" size={24} color="white" />
+                  <FontAwesome6 name="arrow-up" size={18} color="white" />
                 </View>
                 <View>
                   <Text style={styles.transitionsTitle}>Entradas</Text>
-                  <Text style={styles.transitionsSubTitle}>R$ 4.350,00</Text>
+                  <Text style={styles.transitionsSubTitle}>
+                    {showBalance ? balanceData.formattedEntradas : '••••••'}
+                  </Text>
                 </View>
               </View>
 
-              <View style={styles.lineVertical}></View>
+              <View style={styles.lineVertical} />
 
               <View style={styles.transitions}>
                 <View style={styles.containerIcon}>
-                  <FontAwesome6 name="arrow-down" size={24} color="white" />
+                  <FontAwesome6 name="arrow-down" size={18} color="white" />
                 </View>
                 <View>
                   <Text style={styles.transitionsTitle}>Saídas</Text>
-                  <Text style={styles.transitionsSubTitle}>R$ 4.350,00</Text>
+                  <Text style={styles.transitionsSubTitle}>
+                    {showBalance ? balanceData.formattedSaidas : '••••••'}
+                  </Text>
                 </View>
               </View>
             </View>
@@ -98,7 +114,6 @@ export default function Home() {
                 </TouchableOpacity>
               </View>
             </View>
-
             {loading ? (
               <ActivityIndicator size="large" color="#00E676" style={{ marginTop: 20 }} />
             ) : (

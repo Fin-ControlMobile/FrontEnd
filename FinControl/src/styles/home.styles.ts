@@ -34,6 +34,7 @@ export const styles = StyleSheet.create({
 
     containerMoney: {
         flexDirection: "row",
+        justifyContent: "space-between",
         alignItems: "center",
         gap: 20
     },
@@ -78,7 +79,7 @@ export const styles = StyleSheet.create({
         width: "49%",
         flexDirection: "row",
         gap: 15,
-        justifyContent: "center"
+        alignItems: "center"
     },
 
     transitionsTitle: {
@@ -91,6 +92,11 @@ export const styles = StyleSheet.create({
         fontFamily: fonts.jetBrainsRegular,
         color: colors.white,
         fontSize: 13
+    },
+
+    containerEntriesExits: {
+        flex:1,
+        alignItems: "flex-end"
     },
 
 
