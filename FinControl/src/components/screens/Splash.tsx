@@ -27,8 +27,7 @@ export function Splash({ onComplete }: Props) {
 
                 if (!primeiroAcesso) {
 
-                    //! MUDAR O CAMINHO PARA O LOGIN SEM BIOMETRIA
-                    router.replace("/login");
+                    router.replace("/login/loginSemBiometria");
 
                     await AsyncStorage.setItem(
                         "primeiroAcesso",
@@ -36,8 +35,7 @@ export function Splash({ onComplete }: Props) {
                     );
                 }
                 else {
-                    //! MUDAR O CAMINHO PARA O LOGIN COM BIOMETRIA
-                    router.replace("/home")
+                    router.replace("/login")
                 }
             }
         }

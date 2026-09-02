@@ -4,11 +4,12 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { router } from 'expo-router';
+import { Colors } from '../../../constants/theme';
 
 export default function Cadastro() {
 
     function login() {
-        router.push("/login")
+        router.push("/login/loginSemBiometria")
     }
     return (
         <ScrollView style={styles.body}>
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
 
     form: {
         alignItems: 'center',
-        backgroundColor: '#1C1926',
+        backgroundColor: Colors.articleColor,
         width: '90%',
         marginTop: 40,
         borderRadius: 20
@@ -113,6 +114,7 @@ const styles = StyleSheet.create({
         margin: 20,
         width: '90%',
         gap: 30,
+        
     },
 
     campo: {
@@ -126,8 +128,8 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        borderWidth: 3,
-        borderColor: '#494454',
+        borderWidth: 2,
+        borderColor: 'rgba(208, 188, 255, 0.5)',
         borderRadius: 15,
         paddingHorizontal: 12,
         gap: 15
@@ -148,7 +150,7 @@ const styles = StyleSheet.create({
     },
 
     textoBotao: {
-        color: 'white',
+        color: Colors.whiteTitleColor,
     },
 
     entrar: {

@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     containerBalance: {
         backgroundColor: colors.purpleEmphasis,
         borderRadius: 10,
-        padding: 20
+        padding: 20,
     },
 
     BalanceTitle: {

@@ -16,58 +16,77 @@ export const styles = StyleSheet.create({
         color: Colors.purpleTitleColor,
     },
     articleEmail:{
-        margin: 10
+        margin: 15
     },
     textLogin: {
         ...Text,
         color: Colors.textColor,
         fontSize: 16,
-        marginBottom: 8
+        marginBottom: 15,
+    },
+    textRedirect:{
+        ...Text,
+        color: Colors.textColor,
+        marginBottom: 10,
+        fontSize: 14,
+        textAlign:"center"
     },
     articleLogin: {
         backgroundColor: Colors.articleColor,
-        margin:20,
-        padding:20,
+        margin:18,
+        padding:15,
         borderRadius: 15,
         borderWidth: 2,
-        borderColor: Colors.loginBorderColor
+        borderColor: Colors.loginBorderColor,
     },
     icon:{
         marginLeft: 10
     },
     inputLogin: {
         borderRadius: 10,
-        borderColor: Colors.loginBorderColor,
+        borderColor: 'rgba(208, 188, 255, 0.5)',
         borderWidth: 2,
-        marginBottom: 10,
-        paddingHorizontal: 10,
-        
+        marginBottom: 15,
+        paddingHorizontal: 15,
+        height: 55,
+        color: Colors.purpleTitleColor
     },
     buttonLogin: {
-        backgroundColor: Colors.purpleTitleColor,
+        backgroundColor: Colors.colorButton,
         alignItems: 'center',
-        padding: 10,
+        padding: 12,
         borderRadius: 8,
-        margin: 12
+        margin: 16,
+        marginTop: 25, 
     },
     textButton: {
         ...Text,
-        color: Colors.textButtonColor,
+        color: Colors.whiteTitleColor,
         padding: 3,
     },
     Register:{
         flexDirection: 'row',
         alignContent:'center',
         justifyContent: 'center',
-        padding: 5,
+        padding: 2,
+        margin: 10,
+        marginTop:20
+    },
+    RegisterAccess:{
+        alignContent:'center',
+        justifyContent: 'center',
+        padding: 2,
         margin: 10
     },
     textRegister: {
         ...Text,
+        fontSize: 14,
+        textAlign: "center",
         color: Colors.purpleTitleColor,
     },
     textTitleBiometric:{
         ...Title,
+        textAlign:"center",
         color: Colors.whiteTitleColor
     },
     imgBiometric:{
@@ -75,8 +94,20 @@ export const styles = StyleSheet.create({
     },
     biometricButton:{
         marginVertical: 40
+    },
+    textLoginBiometria: {
+        ...Text,
+        padding: 10,
+        color: Colors.textColor,
+        fontSize: 16,
+        marginBottom: 15,
+        textAlign: "center"
+    },
+    textAccess:{
+        ...Text,
+        padding:5,
+        color: Colors.textColor,
+        fontSize: 14,
+        textAlign: "center"
     }
-
-
-
 })

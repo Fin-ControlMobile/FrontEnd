@@ -9,6 +9,8 @@ import {
 } from '@expo-google-fonts/manrope';
 
 import { JetBrainsMono_400Regular } from '@expo-google-fonts/jetbrains-mono';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Colors } from './src/constants/theme';
 
 export default function App() {
 
@@ -23,7 +25,16 @@ export default function App() {
     return null;
   }
 
-  return null;
+  return (
+    <SafeAreaProvider>
+      <View style={styles.container}>
+        <StatusBar 
+        backgroundColor={Colors.purpleTitleColor}
+        />
+      </View>
+    </SafeAreaProvider>
+
+  );
 }
 
 const styles = StyleSheet.create({
