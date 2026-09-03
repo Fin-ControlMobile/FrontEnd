@@ -1,8 +1,7 @@
-import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Feather from '@expo/vector-icons/Feather';
-import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign} from '@expo/vector-icons';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useDetalhesTransacao } from '../../hooks/useDetalhes';
 

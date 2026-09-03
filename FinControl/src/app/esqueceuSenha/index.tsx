@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'expo-router';
 import { useRecuperacaoSenha } from '../../hooks/useRecuperaSenha';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, Colors } from '../../constants/theme';
+import { colors, Colors, TextRegular } from '../../constants/theme';
 
 
 export default function Esqueceu() {
@@ -17,6 +17,10 @@ export default function Esqueceu() {
         solicitarRedefinicao,
         loading
     } = useRecuperacaoSenha();
+
+    function acessarLogin() {
+        router.push("/login/loginSemBiometria")
+    }
 
     const enviarCodigo = async () => {
 
@@ -63,9 +67,6 @@ export default function Esqueceu() {
             keyboardShouldPersistTaps="handled"
         >
             <View style={styles.main}>
-                <TouchableOpacity onPress={voltar}>
-                    <Ionicons name="arrow-back" size={60} color={colors.purpleEmphasis} />
-                </TouchableOpacity>
                 <View style={styles.header}>
                     <Text style={styles.h1}>
                         FinControl
@@ -111,6 +112,12 @@ export default function Esqueceu() {
                             </Text>
                         </TouchableHighlight>
                     </View>
+                    <View style={styles.entrar} >
+                        <Text style={styles.conta}>Já possui uma conta? </Text>
+                        <TouchableOpacity onPress={acessarLogin}>
+                            <Text style={styles.textoEntrar}>Entrar</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         </ScrollView>
@@ -121,7 +128,7 @@ const styles = StyleSheet.create({
 
     body: {
         flex: 1,
-        backgroundColor: '#051424',
+        backgroundColor: colors.bgc,
     },
 
     content: {
@@ -156,9 +163,10 @@ const styles = StyleSheet.create({
     form: {
         width: '88%',
         maxWidth: 450,
-        backgroundColor: '#1C1926',
+        backgroundColor: colors.superface,
         borderRadius: 20,
         padding: 24,
+        gap: 20
     },
 
     container: {
@@ -207,5 +215,24 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: '600',
     },
+    entrar: {
+        flexDirection: 'row',
+        alignContent: 'center',
+        justifyContent: 'center',
+        padding: 2,
+
+    },
+
+    conta: {
+        ...TextRegular,
+        color: '#CBC3D7',
+        fontSize: 16
+    },
+    textoEntrar: {
+        ...TextRegular,
+        color: Colors.purpleTitleColor,
+        fontSize: 16,
+
+    }
 
 });
