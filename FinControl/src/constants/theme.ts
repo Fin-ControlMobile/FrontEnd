@@ -2,13 +2,15 @@
 export const colors = {
     bgc: "#061626",
     purpleEmphasis: "#a078ff",
-    purple:"#340080", 
+    purple: "#340080",
     superface: "#132333",
+    purpleTitleColor: '#D0BCFF',
     exitRed: "#93000A",
     transitionRed: "#FFB4AB",
     transitionGreen: "#4EDEA3",
     colorFontTile: "#D4E4FA",
     colorFont: "#CBC3D7",
+    loginBorderColor: '#273647',
     gray: "#958EA0",
     white: "#FFFFFF",
 }

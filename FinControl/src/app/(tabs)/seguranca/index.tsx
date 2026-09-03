@@ -1,10 +1,13 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Footer from "../../../components/footer/footer";
 
 import { colors } from "../../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function Seguranca() {
+
+  const {logout} = useAuth()
   return (
     <View style={styles.container}>
       <View style={styles.conteudo}>
@@ -29,8 +32,10 @@ export default function Seguranca() {
           </View>
 
           <View style={styles.blocoEncerrar}>
-            <Image source={require('../../../../assets/imgs/encerrarServico.png')} />
+           <Ionicons name="exit-outline" size={24} color="#93000A" />
+            <TouchableOpacity onPress={logout}>
             <Text style={styles.textoEncerrar}>Encerrar sessão</Text>
+            </TouchableOpacity>
           </View>
         </View>
 

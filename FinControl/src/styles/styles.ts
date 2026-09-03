@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native"
-import { Colors, Text, Title } from "../constants/theme"
+import { Colors, colors, Text, Title } from "../constants/theme"
 
 
 export const styles = StyleSheet.create({
     background: {
        flex: 1,
-       backgroundColor: Colors.backgroundColor,
+       backgroundColor: colors.bgc,
        justifyContent: "center"
     },
     titleLogin: {
@@ -13,14 +13,14 @@ export const styles = StyleSheet.create({
     },
     textTitle:{
         ...Title,
-        color: Colors.purpleTitleColor,
+        color: colors.purpleTitleColor,
     },
     articleEmail:{
         margin: 15
     },
     textLogin: {
         ...Text,
-        color: Colors.textColor,
+        color: colors.colorFont,
         fontSize: 16,
         marginBottom: 15,
     },

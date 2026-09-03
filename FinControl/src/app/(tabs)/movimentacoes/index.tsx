@@ -1,149 +1,128 @@
-import { FlatList, FlatListComponent, Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
-import CardMovimentacao from "../../../components/cardMovimentacao/cardMovimentacao"
-import { Ionicons } from "@expo/vector-icons"
-import { colors, fonts } from "../../../constants/theme"
-import { useState } from "react";
-import { Picker } from "@react-native-picker/picker";
-import Footer from "../../../components/footer/footer";
+import { useState, useEffect } from "react";
+import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
+import { colors, fonts } from "../../../constants/theme";
+import { MovementsScreen } from "../../../components/movementLists/movementScreen";
+import { groupTransactionsByDate } from "../../../utils/groupMovements";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-const dados = [
-  { id: '1', name: 'Todas' },
-  { id: '2', name: 'Hoje' },
-  { id: '3', name: 'Ontem' },
-  { id: '4', name: 'Recentes' }
-];
+import Footer from "../../../components/footer/footer";
+import { transactionService } from "../../../services/transactionService";
+import { GroupedSection } from "../../../@types/movementLists";
 
 
 export default function Movimentacoes() {
-  const [filtroSelecionado, setFiltroSelecionado] = useState("Todas");
+  const [sections, setSections] = useState<GroupedSection[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
+  useEffect(() => {
+    async function loadTransactions() {
+      try {
+        setLoading(true);
+        // 1. Busca as transações brutas da API
+        const data = await transactionService.List();
+
+        // 2. Agrupa por data (HOJE, ONTEM, etc.) e formata cada item
+        const grouped = groupTransactionsByDate(data);
+
+        setSections(grouped);
+      } catch (error) {
+        console.error("Erro ao carregar movimentações:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadTransactions();
+  }, []);
 
   return (
     <>
       <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
-
         <View style={styles.headerMov}>
-          <Text style={styles.txtHeader}>Movimentacoes</Text>
-          <TouchableOpacity style={styles.btnNotif}><Ionicons size={20} name="notifications" color={colors.colorFont} /></TouchableOpacity>
+          <Text style={styles.txtHeader}>Movimentações</Text>
         </View>
 
-        <View style={styles.main}>
-          <View style={styles.filtros}>
-
-            <View style={styles.filtroText}>
-              <Ionicons name="search" size={24} color={colors.colorFont} />
-              <TextInput placeholderTextColor={colors.colorFont} placeholder="Buscar movimentacoes" style={styles.textFiltro} />
-            </View>
-
-
-            <View style={styles.selectContainer}>
-              <Ionicons
-                name="filter-outline"
-                size={20}
-                color={colors.colorFont}
-                pointerEvents="none"
-              />
-              <Picker
-                selectedValue={filtroSelecionado}
-                onValueChange={(itemValue) =>
-                  setFiltroSelecionado(itemValue)
-                }
-                dropdownIconColor={colors.colorFont}
-                style={styles.select}
-              >
-                {dados.map((item) => (
-                  <Picker.Item
-                    key={item.id}
-                    label={item.name}
-                    value={item.name}
-                    color={colors.colorFont}
-                    style={styles.item}
-                  />
-                ))}
-              </Picker>
-
-            </View>
-
+        {loading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color={colors.purpleEmphasis} />
           </View>
-
-          <View style={styles.tabela}>
-            <Text style={styles.txtIndicativo}>Todas</Text>
-            <View style={styles.tabelaCards}>
-              <CardMovimentacao />
-              <CardMovimentacao />
-              <CardMovimentacao />
-            </View>
-          </View>
-        </View>
-
-        <Footer
-          activeTab="wallet"
-        />
+        ) : (
+          <MovementsScreen
+            sections={sections}
+            onItemPress={(id) => console.log('Detalhes da transação:', id)}
+          />
+        )}
       </SafeAreaView>
+
+      <View style={styles.containerFooter}>
+        <Footer activeTab="wallet" />
+      </View>
     </>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     justifyContent: "space-between",
     backgroundColor: colors.bgc,
-    flex: 1
+    flex: 1,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   main: {
-    width: '100%',
-    gap: '2%'
-  }
-  ,
+    width: "100%",
+    gap: "2%",
+  },
   headerMov: {
     backgroundColor: colors.superface,
-    height: '10%',
-    justifyContent: 'space-around',
-    padding: '2%',
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: '44%'
+    padding: 20,
+    justifyContent: "flex-start",
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: "44%",
   },
   txtHeader: {
     color: colors.purpleEmphasis,
-    fontSize: 25,
-    fontFamily: fonts.manropExtraBold
+    fontSize: 24,
+    fontWeight: "bold",
+    fontFamily: "Manrope_700Bold",
   },
   textFiltro: {
     color: colors.colorFont,
     fontSize: 16,
     fontFamily: fonts.jetBrainsRegular,
-    opacity: 0.6
+    opacity: 0.6,
   },
   tabelaCards: {
-    width: '100%',
-    flexDirection: 'column',
-    height: '60%',
-    alignItems: 'center'
+    width: "100%",
+    flexDirection: "column",
+    height: "60%",
+    alignItems: "center",
   },
   txtIndicativo: {
     color: colors.colorFontTile,
     fontSize: 20,
-    fontFamily: fonts.manropSemiBold
+    fontFamily: fonts.manropSemiBold,
   },
   btnNotif: {
-    width: '40%'
+    width: "40%",
   },
   btnFiltro: {
     backgroundColor: colors.superface,
-    height: '100%',
-    width: '12%',
-    alignItems: 'center',
+    height: "100%",
+    width: "12%",
+    alignItems: "center",
     borderRadius: 10,
-    padding: '2%'
+    padding: "2%",
   },
   tabela: {
-    textAlign: 'left',
-    padding: '2%',
-    width: '100%',
-    gap: '4%'
+    textAlign: "left",
+    padding: "2%",
+    width: "100%",
+    gap: "4%",
   },
   filtros: {
     width: "100%",
@@ -162,25 +141,27 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     gap: 10,
   },
-
   selectContainer: {
     backgroundColor: colors.superface,
-    width: '16.5%',
+    width: "16.5%",
     height: 50,
     borderRadius: 10,
     overflow: "hidden",
-    alignItems: 'center',
-    flexDirection: 'row',
-    padding: '3%'
+    alignItems: "center",
+    flexDirection: "row",
+    padding: "3%",
   },
   select: {
     width: 40,
     height: 50,
     color: colors.superface,
-    borderRadius: 10
+    borderRadius: 10,
   },
   item: {
     backgroundColor: colors.superface,
     borderRadius: 10,
-  }
-})
+  },
+  containerFooter: {
+    backgroundColor: colors.bgc,
+  },
+});
