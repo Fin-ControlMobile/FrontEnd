@@ -38,7 +38,7 @@ export function MovementsScreen({ sections, onItemPress, onFilterPress }: Props)
           <View style={styles.containerCard}>
             {section.data.map((item, index) => (
               <React.Fragment key={item.id}>
-                <MovementItem data={item} onPress={() => onItemPress?.(item.id)} />
+                <MovementItem data={item}/>
                 {index < section.data.length - 1 && <View style={styles.line} />}
               </React.Fragment>
             ))}

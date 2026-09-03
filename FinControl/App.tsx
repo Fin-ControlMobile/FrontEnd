@@ -5,11 +5,6 @@ import { Manrope_600SemiBold, Manrope_700Bold, Manrope_800ExtraBold } from '@exp
 import { JetBrainsMono_400Regular } from '@expo-google-fonts/jetbrains-mono';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Colors } from './src/constants/theme';
-<<<<<<< HEAD
-
-=======
-import LoginSemBiometria from './src/app/login';
->>>>>>> feature/esquecerSenha
 export default function App() {
 
   const [fontsLoaded, fontError] = useFonts({
@@ -26,14 +21,9 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <View style={styles.container}>
-<<<<<<< HEAD
         <StatusBar 
         backgroundColor={Colors.purpleTitleColor}
         />
-=======
-        <StatusBar style='light' />
-        <LoginSemBiometria/>
->>>>>>> feature/esquecerSenha
       </View>
     </SafeAreaProvider>
 
