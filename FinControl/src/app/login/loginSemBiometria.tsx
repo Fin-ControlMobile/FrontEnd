@@ -21,21 +21,21 @@ export default function LoginSemBiometria() {
 
     function acessarLoginBiometria() {
 
-        // if (checkingHardware) {
-        //     Alert.alert(
-        //         "Aguarde",
-        //         "Verificando a biometria do dispositivo..."
-        //     );
-        //     return;
-        // }
+        if (checkingHardware) {
+            Alert.alert(
+                "Aguarde",
+                "Verificando a biometria do dispositivo..."
+            );
+            return;
+        }
 
-        // if (!isCompatible) {
-        //     Alert.alert(
-        //         "Erro",
-        //         "Dispositivo não possui biometria cadastrada!"
-        //     );
-        //     return;
-        // }
+        if (!isCompatible) {
+            Alert.alert(
+                "Erro",
+                "Dispositivo não possui biometria cadastrada!"
+            );
+            return;
+        }
 
         router.push("/login");
     }
