@@ -18,8 +18,10 @@ export const styles = StyleSheet.create({
     },
 
     transferDetails: {
-        flexDirection: "row",
-        gap: 10
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 12,
+        flex: 1
     },
 
     containerIcon: {
@@ -31,7 +33,8 @@ export const styles = StyleSheet.create({
     },
 
     details: {
-        gap: 5
+        flex: 1,
+        marginRight: 12,
     },
 
     title: {

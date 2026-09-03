@@ -36,8 +36,6 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({children}) 
     }, [])
 
     async function login(dados: Login) {
-        console.log(dados.email)
-        console.log(dados.senha)
         const resposta = await autenticacaoService.login(dados)
 
         if(resposta.token){
@@ -45,7 +43,6 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({children}) 
             setUsuario(decodificarToken(resposta.token))
         }
 
-        console.log(resposta)
     }
 
     async function logout() {

@@ -7,7 +7,7 @@ import { useAuth } from "../../../context/AuthContext";
 
 export default function Seguranca() {
 
-  const {logout} = useAuth()
+  const { logout } = useAuth()
   return (
     <View style={styles.container}>
       <View style={styles.conteudo}>
@@ -22,7 +22,9 @@ export default function Seguranca() {
         <View style={styles.blocos}>
 
           <View style={styles.blocoSessao}>
-            <Ionicons name="shield-checkmark-outline" color={"#CBC3D7"} size={30} />
+            <View style={styles.containerIconShild}>
+              <Ionicons name="shield-checkmark-outline" color={"#CBC3D7"} size={30} />
+            </View>
             <View style={styles.textosBloco}>
               <Text style={styles.tituloBloco}>Sessão segura</Text>
               <Text style={styles.descricaoBloco}>Seu aplicativo está protegido. A sessão
@@ -32,16 +34,18 @@ export default function Seguranca() {
           </View>
 
           <View style={styles.blocoEncerrar}>
-           <Ionicons name="exit-outline" size={24} color="#93000A" />
+            <View style={styles.containerIconExit}>
+              <Ionicons name="exit-outline" size={30} color="#FFB4AB" />
+            </View>
             <TouchableOpacity onPress={logout}>
-            <Text style={styles.textoEncerrar}>Encerrar sessão</Text>
+              <Text style={styles.textoEncerrar}>Encerrar sessão</Text>
             </TouchableOpacity>
           </View>
         </View>
 
         <View style={styles.info}>
           <View style={styles.infoPagina}>
-            <Ionicons name='information-circle-outline' color={"#CBC3D7"} size={15} />
+            <Ionicons name='information-circle-outline' color={"#CBC3D7"} size={25} />
             <Text style={styles.tituloInfo}>Sobre a segurança</Text>
           </View>
 
@@ -55,8 +59,8 @@ export default function Seguranca() {
 
       </View>
 
-      <Footer 
-      activeTab="shield"
+      <Footer
+        activeTab="shield"
       />
     </View>
   )
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
   },
   subTituloSessao: {
     color: colors.colorFont,
-    fontSize: 16
+    fontSize: 16,
   },
   blocos: {
     gap: 10,
@@ -120,7 +124,7 @@ const styles = StyleSheet.create({
   },
   tituloBloco: {
     color: colors.white,
-    fontSize: 12,
+    fontSize: 18,
     fontFamily: 'JetBrainsMono_400Regular'
   },
   descricaoBloco: {
@@ -140,19 +144,33 @@ const styles = StyleSheet.create({
     gap: 20,
     paddingLeft: 10
   },
+  containerIconExit: {
+    backgroundColor: "#93000A",
+    padding: 10,
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  containerIconShild: {
+    backgroundColor: "rgba(255,255,255, 0.1)",
+    padding: 10,
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   textoEncerrar: {
     color: colors.transitionRed,
     fontFamily: 'JetBrainsMono_400Regular'
   },
-  info:{
-    padding: 10,
+  info: {
+    padding: 20,
   },
   infoPagina: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10
   },
-  tituloInfo:{
+  tituloInfo: {
     fontFamily: 'JetBrainsMono_400Regular',
     fontSize: 16,
     color: colors.white
