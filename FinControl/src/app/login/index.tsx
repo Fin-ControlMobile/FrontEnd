@@ -50,6 +50,10 @@ export default function LoginSemBiometria() {
     router.push("/cadastro")
   }
 
+  function acessarEsqueceuSenha(){
+    router.push("/esqueceuSenha")
+  }
+
   return (
     <View style={styles.background}>
       <View style={styles.titleLogin}>
@@ -90,6 +94,11 @@ export default function LoginSemBiometria() {
           <Text style={styles.textLogin}>Não tem uma Conta?</Text>
           <TouchableOpacity onPress={acessarCadastro}>
             <Text style={styles.textRegister}> Cadastre-se</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.Register}>
+          <TouchableOpacity onPress={acessarEsqueceuSenha}>
+            <Text style={styles.textRegister}>Esqueceu a senha?</Text>
           </TouchableOpacity>
         </View>
       </View>
