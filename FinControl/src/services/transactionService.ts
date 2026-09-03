@@ -8,5 +8,10 @@ export const transactionService = {
         const resposta = await api.get<TransactionApiResponse[]>("Transacao");
 
         return resposta.data;
+    },
+
+    async GetById(id: string): Promise<TransactionApiResponse> {
+        const resposta = await api.get<TransactionApiResponse>(`Transacao/obterTransacao/${id}`);
+        return resposta.data;
     }
 }

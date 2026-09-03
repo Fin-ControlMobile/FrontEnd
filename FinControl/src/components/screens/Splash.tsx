@@ -25,7 +25,7 @@ export function Splash({ onComplete }: Props) {
 
                 const primeiroAcesso = await AsyncStorage.getItem("primeiroAcesso");
 
-                if (!primeiroAcesso) {
+                if (primeiroAcesso) {
 
                     router.replace("/login/loginSemBiometria");
 
