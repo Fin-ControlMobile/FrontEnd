@@ -4,6 +4,7 @@ import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useAuth, useBiometrics } from "../../hooks/useBiometrics";
 import { styles } from "../../styles/styles";
 import { useState } from "react";
+import { useNotificacao } from "../../hooks/useNotificacao";
 
 
 export default function LoginSemBiometria() {
@@ -13,6 +14,7 @@ export default function LoginSemBiometria() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("")
     const [loading, setLoading] = useState(false);
+    const { notificar } = useNotificacao();
 
     async function acessar() {
         const emailDigitado = email.trim();
@@ -31,6 +33,7 @@ export default function LoginSemBiometria() {
             setLoading(true)
             await login({ email: emailDigitado, senha: senhaDigitada })
             router.replace('/home')
+            await notificar('Bem-vindo ao FinControl! 👋', 'Seu primeiro acesso foi realizado com sucesso.')
         } catch (error: any) {
             const mensagem =
                 error?.respons?.data?.message ||

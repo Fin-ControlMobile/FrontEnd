@@ -5,7 +5,17 @@ import { Manrope_600SemiBold, Manrope_700Bold, Manrope_800ExtraBold } from '@exp
 import { JetBrainsMono_400Regular } from '@expo-google-fonts/jetbrains-mono';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Colors } from './src/constants/theme';
+import * as Notifications from 'expo-notifications';
 export default function App() {
+
+  Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldPlaySound: true,
+    shouldSetBadge: true,
+    shouldShowBanner: true,
+    shouldShowList: true,
+  }),
+});
 
   const [fontsLoaded, fontError] = useFonts({
     JetBrainsMono_400Regular,

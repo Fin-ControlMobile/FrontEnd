@@ -1,4 +1,4 @@
-import { Stack } from "expo-router";
+import { router, Stack } from "expo-router";
 import { StatusBar } from "react-native"
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Manrope_600SemiBold, Manrope_700Bold, Manrope_800ExtraBold, useFonts } from '@expo-google-fonts/manrope'
@@ -6,6 +6,8 @@ import { JetBrainsMono_400Regular } from '@expo-google-fonts/jetbrains-mono';
 import { Colors } from "../constants/theme";
 import { StackScreen } from "react-native-screens";
 import { AuthProvider } from "../context/AuthContext";
+import { useEffect } from "react";
+import * as Notifications from 'expo-notifications'
 
 
 export default function RootLayout() {
@@ -20,6 +22,22 @@ export default function RootLayout() {
   if (!fontsLoaded && !fontError) {
     return null;
   }
+
+   useEffect(() => {
+    const subscription =
+      Notifications.addNotificationResponseReceivedListener(response => {
+        const data =
+          response.notification.request.content.data;
+      
+        if (data.tipo === 'movimentacao') {
+          router.push('/')
+        }
+      });
+    return () => {
+      subscription.remove();
+    };
+  }, []);
+
   return (
     <AuthProvider>
       <SafeAreaProvider>
