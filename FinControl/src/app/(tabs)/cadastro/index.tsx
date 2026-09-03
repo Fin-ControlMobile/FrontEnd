@@ -4,7 +4,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { router } from 'expo-router';
-import { Colors } from '../../../constants/theme';
+import { colors, Colors, Title, TextRegular } from '../../../constants/theme';
 import { UsuarioCadastro } from '../../../@types';
 import useCadastro from '../../../hooks/useCadastro';
 
@@ -27,7 +27,7 @@ export default function Cadastro() {
             senha: senha
         }
         const sucesso = await cadastroUsuario(novoUsuario)
-        
+
 
         if (sucesso) {
             setNome("");
@@ -37,133 +37,127 @@ export default function Cadastro() {
         }
     }
 
-    function acessarLogin(){
+    function acessarLogin() {
         router.push("/login/loginSemBiometria")
     }
 
 
     return (
-        <ScrollView style={styles.body}>
-            <View style={styles.main}>
-                <View style={styles.header}>
-                    <Text style={styles.h1}>FinControl</Text>
-                    <Text style={styles.h2}>Crie sua conta agora.</Text>
-                </View>
-                <View style={styles.form}>
-                    <View style={styles.container}>
-                        <View style={styles.campo}>
-                            <Text style={styles.label}>NOME COMPLETO</Text>
-                            <View style={styles.inputContainer}>
-                               <FontAwesome name="user-o" size={24} color="#494454" />
-                                <TextInput
-                                    placeholder="Seu nome"
-                                    placeholderTextColor="#494454"
-                                    style={styles.input}
-                                    onChangeText={setNome}
-                                    value={nome}
-                                />
-                            </View>
+        <View style={styles.main}>
+            <View style={styles.header}>
+                <Text style={styles.h1}>FinControl</Text>
+                <Text style={styles.h2}>Crie sua conta agora.</Text>
+            </View>
+            <View style={styles.form}>
+                <View style={styles.container}>
+                    <View style={styles.campo}>
+                        <Text style={styles.label}>Nome Completo</Text>
+                        <View style={styles.inputContainer}>
+                            <FontAwesome name="user-o" size={24} color="#494454" />
+                            <TextInput
+                                placeholder="Seu nome"
+                                placeholderTextColor="#494454"
+                                style={styles.input}
+                                onChangeText={setNome}
+                                value={nome}
+                            />
                         </View>
-                        <View style={styles.campo}>
-                            <Text style={styles.label}>E-MAIL</Text>
-                            <View style={styles.inputContainer}>
-                                <Fontisto name="email" size={24} color="#494454" />
-                                <TextInput
-                                    placeholder="seu@email.com"
-                                    placeholderTextColor="#494454"
-                                    style={styles.input}
-                                    onChangeText={setEmail}
-                                    value={email}
-                                />
-                            </View>
-                        </View>
-                        <View style={styles.campo}>
-                            <Text style={styles.label}>SENHA</Text>
-                            <View style={styles.inputContainer}>
-                                <AntDesign name="lock" size={24} color="#494454" />
-                                <TextInput
-                                    placeholder="********"
-                                    placeholderTextColor="#494454"
-                                    style={styles.input}
-                                    onChangeText={setSenha}
-                                    value={senha}
-                                />
-                            </View>
-                        </View>
-
-                    
-                        <TouchableHighlight style={styles.botao} onPress={handleSalvar}>
-                            <Text style={styles.textoBotao}>CADASTRAR</Text>
-
-                        </TouchableHighlight>
                     </View>
+                    <View style={styles.campo}>
+                        <Text style={styles.label}>E-mail</Text>
+                        <View style={styles.inputContainer}>
+                            <Fontisto name="email" size={24} color="#494454" />
+                            <TextInput
+                                placeholder="seu@email.com"
+                                placeholderTextColor="#494454"
+                                style={styles.input}
+                                onChangeText={setEmail}
+                                value={email}
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.campo}>
+                        <Text style={styles.label}>Senha</Text>
+                        <View style={styles.inputContainer}>
+                            <AntDesign name="lock" size={24} color="#494454" />
+                            <TextInput
+                                placeholder="********"
+                                placeholderTextColor="#494454"
+                                style={styles.input}
+                                onChangeText={setSenha}
+                                value={senha}
+                            />
+                        </View>
+                    </View>
+
+
+                    <TouchableHighlight style={styles.botao} onPress={handleSalvar}>
+                        <Text style={styles.textoBotao}>CADASTRAR</Text>
+
+                    </TouchableHighlight>
                 </View>
                 <View style={styles.entrar} >
                     <Text style={styles.conta}>Já possui uma conta? </Text>
-            
-                    <TouchableOpacity onPress={acessarLogin} style={styles.entrar}>
+                    <TouchableOpacity onPress={acessarLogin}>
                         <Text style={styles.textoEntrar}>Entrar</Text>
                     </TouchableOpacity>
-
                 </View>
             </View>
-        </ScrollView>
+        </View>
+
     )
 }
 
 
 const styles = StyleSheet.create({
 
-    body: {
-        flex: 1,
-        height: '100%',
-        width: '100%',
-        backgroundColor: '#051424',
-    },
-
     main: {
-        height: '100%',
-        alignItems: 'center',
-        gap: 40
+        flex: 1,
+        backgroundColor: colors.bgc,
+        justifyContent: "center"
     },
 
     header: {
         alignItems: 'center',
-        marginTop: 30,
-        gap: 10
+        padding: 10
     },
 
     h1: {
-        color: '#D0BCFF',
-        fontSize: 50,
-        fontWeight: 800
+        ...Title,
+        color: colors.purpleTitleColor
     },
 
     h2: {
-        color: '#CBC3D7',
-        fontSize: 20
+        ...TextRegular,
+        color: Colors.whiteTitleColor,
+        fontSize: 18
     },
 
     form: {
         alignItems: 'center',
         backgroundColor: Colors.articleColor,
         width: '90%',
-        marginTop: 40,
-        borderRadius: 20
+        margin: 20,
+        borderRadius: 15,
+        padding: 15,
+        borderWidth: 2,
+        borderColor: Colors.loginBorderColor
     },
 
     container: {
         margin: 20,
         width: '90%',
         gap: 30,
-        
+
     },
 
     campo: {
+        ...Text,
         gap: 10
     },
 
     label: {
+        ...TextRegular,
         color: '#CBC3D7'
     },
 
@@ -181,32 +175,41 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 48,
         color: Colors.purpleTitleColor,
-        
+
     },
 
     botao: {
-        backgroundColor: '#8B5CF6',
+        backgroundColor: Colors.colorButton,
         alignItems: 'center',
-        height: 50,
-        justifyContent: 'center',
         borderRadius: 10,
+        padding: 12,
+        marginTop: 16,
+        marginBottom: 16
     },
 
     textoBotao: {
-        color: Colors.whiteTitleColor,
+        ...TextRegular,
+        color: Colors.purpleTitleColor,
     },
 
     entrar: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignContent: 'center',
+        justifyContent: 'center',
+        padding: 2,
+        
     },
 
     conta: {
+        ...TextRegular,
         color: '#CBC3D7',
-        fontSize: 18
+        fontSize: 16
     },
 
     textoEntrar: {
-        color: '#8B5CF6',
-        fontSize: 18
+        ...TextRegular,
+        color: Colors.purpleTitleColor,
+        fontSize: 16,
+        
     }
 })

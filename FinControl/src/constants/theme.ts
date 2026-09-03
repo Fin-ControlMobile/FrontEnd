@@ -45,7 +45,6 @@ export const Title = {
     fontFamily: Fonts.bold,
 }
 
-export const Text = {
+export const TextRegular = {
     fontFamily: Fonts.regular
-
 }

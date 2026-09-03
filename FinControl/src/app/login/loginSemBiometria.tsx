@@ -52,7 +52,7 @@ export default function LoginSemBiometria() {
     }
 
     function acessarLoginBiometria() {
-        router.push("/login/loginComBiometria");
+        router.push('/login/loginComBiometria');
     }
 
     return (
