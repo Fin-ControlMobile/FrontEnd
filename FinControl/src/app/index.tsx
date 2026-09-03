@@ -1,4 +1,4 @@
-import Login from '../app/login/index'; 
+import Login from './login/loginComBiometria'; 
 
 export default function Index() {
   return <Login />;

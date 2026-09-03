@@ -49,7 +49,7 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({children}) 
         await AsyncStorage.removeItem(process.env.EXPO_PUBLIC_TOKEN_KEY!);
         setToken(null)
         setUsuario(null)
-        router.replace('/login')
+        router.replace('/loginComBiometria')
     }
 
     return(

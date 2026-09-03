@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native"
-import { Colors, colors, Text, Title } from "../constants/theme"
+import { Colors, colors, TextRegular, Title } from "../constants/theme"
 
 
 export const styles = StyleSheet.create({
     background: {
        flex: 1,
-       backgroundColor: colors.bgc,
+       backgroundColor: Colors.backgroundColor,
        justifyContent: "center"
     },
     titleLogin: {
@@ -13,24 +13,18 @@ export const styles = StyleSheet.create({
     },
     textTitle:{
         ...Title,
-        color: colors.purpleTitleColor,
+        color: Colors.purpleTitleColor,
     },
     articleEmail:{
         margin: 15
     },
     textLogin: {
-        ...Text,
-        color: colors.colorFont,
+        ...TextRegular,
+        color: Colors.whiteTitleColor,
         fontSize: 16,
         marginBottom: 15,
     },
-    textRedirect:{
-        ...Text,
-        color: Colors.textColor,
-        marginBottom: 10,
-        fontSize: 14,
-        textAlign:"center"
-    },
+    
     articleLogin: {
         backgroundColor: Colors.articleColor,
         margin:18,
@@ -60,7 +54,7 @@ export const styles = StyleSheet.create({
         marginTop: 25, 
     },
     textButton: {
-        ...Text,
+        ...TextRegular,
         color: Colors.whiteTitleColor,
         padding: 3,
     },
@@ -79,10 +73,17 @@ export const styles = StyleSheet.create({
         margin: 10
     },
     textRegister: {
-        ...Text,
+        ...TextRegular,
         fontSize: 14,
         textAlign: "center",
         color: Colors.purpleTitleColor,
+    },
+    textRedirect:{
+        ...TextRegular,
+        color: Colors.textColor,
+        marginBottom: 10,
+        fontSize: 14,
+        textAlign:"center"
     },
     textTitleBiometric:{
         ...Title,
@@ -96,7 +97,7 @@ export const styles = StyleSheet.create({
         marginVertical: 40
     },
     textLoginBiometria: {
-        ...Text,
+        ...TextRegular,
         padding: 10,
         color: Colors.textColor,
         fontSize: 16,
@@ -104,7 +105,7 @@ export const styles = StyleSheet.create({
         textAlign: "center"
     },
     textAccess:{
-        ...Text,
+        ...TextRegular,
         padding:5,
         color: Colors.textColor,
         fontSize: 14,

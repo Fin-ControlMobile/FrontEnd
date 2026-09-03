@@ -3,9 +3,12 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-nati
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Feather from '@expo/vector-icons/Feather';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useDetalhesTransacao } from '../../hooks/useDetalhes';
 
 export default function Detalhes() {
+    const {id} = useLocalSearchParams<{id: string}>(); 
+    const {transacao, dataTransacaoFormatada, valorFormatado} = useDetalhesTransacao(id);
     const router = useRouter();
 
     function voltar(){
@@ -22,16 +25,15 @@ export default function Detalhes() {
             </View>
             <View style={styles.section}>
                 <FontAwesome5 name="shopping-cart" size={40} color="#D0BCFF" style={styles.carrinho} />
-                <Text style={styles.tipoUsuario}>Mercado</Text>
-                <Text style={styles.usuario}>Supermarket &  Groceries</Text>
-                <Text style={styles.valor}>- R$ 245,80</Text>
+                <Text style={styles.tipoUsuario}>{transacao?.remetente}</Text>
+                <Text style={styles.valor}>{valorFormatado}</Text>
             </View>
             <View style={styles.section}>
                 <View style={styles.card}>
                     <Feather name="calendar" size={24} color="#D0BCFF" style={styles.fundoIcone} />
                     <View>
                         <Text style={styles.h2}>Data</Text>
-                        <Text style={styles.conteudo}>12 Outubro 2023, 14:30</Text>
+                        <Text style={styles.conteudo}>{dataTransacaoFormatada}</Text>
                     </View>
                 </View>
                 <View style={styles.card}>
@@ -45,13 +47,13 @@ export default function Detalhes() {
                     <FontAwesome5 name="user-circle" size={24} color="#D0BCFF" style={styles.fundoIcone}></FontAwesome5>
                     <View>
                         <Text style={styles.h2}>Destinatário</Text>
-                        <Text style={styles.conteudo}>Alimentaçao</Text>
+                        <Text style={styles.conteudo}>{transacao?.destinatario}</Text>
                     </View>
                 </View>
                 <View style={styles.cardDescricao}>
                     <Text style={styles.h2}>Descrição</Text>
                     <View style={styles.container}>
-                        <Text style={styles.descricao}>Compras semanais, incluindo produtos frescos, laticínios e itens essenciais para a casa. Recibo anexado ao e-mail.</Text>
+                        <Text style={styles.descricao}>{transacao?.descricao}</Text>
                     </View>
                 </View>
             </View>
@@ -64,7 +66,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#051424',
         flex: 1,
     },
-
 
     header: {
         marginTop: 30,
@@ -127,7 +128,6 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 15,
         gap: 30
-
     },
 
     saida: {
@@ -135,7 +135,6 @@ const styles = StyleSheet.create({
         padding: 8,
         borderRadius: 30
     },
-
 
     fundoIcone: {
         backgroundColor: '#1C2B3C',
