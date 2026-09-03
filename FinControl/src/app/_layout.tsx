@@ -38,17 +38,17 @@ export default function RootLayout() {
           />
 
           <Stack.Screen
-            name="login/index"
+            name="login/loginSemBiometria"
             options={{
-              title: "login",
+              title: "loginSemBiometria",
               headerShown: false
             }}
           />
 
           <Stack.Screen
-            name="login/loginSemBiometria"
+            name="login/loginComBiometria"
             options={{
-              title: "loginSemBiometria",
+              title: "loginComBiometria",
               headerShown: false
             }}
           />

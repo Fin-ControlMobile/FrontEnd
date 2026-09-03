@@ -35,7 +35,7 @@ export function Splash({ onComplete }: Props) {
                     );
                 }
                 else {
-                    router.replace("/login")
+                    router.replace("/login/loginComBiometria");
                 }
             }
         }

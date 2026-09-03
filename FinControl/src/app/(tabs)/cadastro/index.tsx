@@ -33,12 +33,12 @@ export default function Cadastro() {
             setNome("");
             setEmail("");
             setSenha("");
-            router.push("/login")
+            router.push("/login/loginSemBiometria");
         }
     }
 
     function acessarLogin(){
-        router.push("/login")
+        router.push("/login/loginSemBiometria")
     }
 
 
@@ -100,7 +100,6 @@ export default function Cadastro() {
                 </View>
                 <View style={styles.entrar} >
                     <Text style={styles.conta}>Já possui uma conta? </Text>
-
             
                     <TouchableOpacity onPress={acessarLogin} style={styles.entrar}>
                         <Text style={styles.textoEntrar}>Entrar</Text>
@@ -181,7 +180,8 @@ const styles = StyleSheet.create({
     input: {
         flex: 1,
         height: 48,
-        color: '#636262',
+        color: Colors.purpleTitleColor,
+        
     },
 
     botao: {
