@@ -17,6 +17,7 @@ export const Colors = {
     backgroundColor: '#051424',
     articleColor: '#122131',
     purpleTitleColor: '#D0BCFF',
+    colorButton: '#8B5CF6',
     whiteTitleColor: '#D4E4FA',
     textColor: '#CBC3D7',
     textButtonColor: '#3C0091',

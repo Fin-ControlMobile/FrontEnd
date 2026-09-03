@@ -128,8 +128,8 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        borderWidth: 3,
-        borderColor: '#494454',
+        borderWidth: 2,
+        borderColor: 'rgba(208, 188, 255, 0.5)',
         borderRadius: 15,
         paddingHorizontal: 12,
         gap: 15
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     },
 
     textoBotao: {
-        color: 'white',
+        color: Colors.whiteTitleColor,
     },
 
     entrar: {

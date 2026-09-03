@@ -21,21 +21,21 @@ export default function LoginSemBiometria() {
 
     function acessarLoginBiometria() {
 
-        if (checkingHardware) {
-            Alert.alert(
-                "Aguarde",
-                "Verificando a biometria do dispositivo..."
-            );
-            return;
-        }
+        // if (checkingHardware) {
+        //     Alert.alert(
+        //         "Aguarde",
+        //         "Verificando a biometria do dispositivo..."
+        //     );
+        //     return;
+        // }
 
-        if (!isCompatible) {
-            Alert.alert(
-                "Erro",
-                "Dispositivo não possui biometria cadastrada!"
-            );
-            return;
-        }
+        // if (!isCompatible) {
+        //     Alert.alert(
+        //         "Erro",
+        //         "Dispositivo não possui biometria cadastrada!"
+        //     );
+        //     return;
+        // }
 
         router.push("/login");
     }
@@ -74,7 +74,7 @@ export default function LoginSemBiometria() {
             </View>
 
             <TouchableOpacity style={styles.buttonLogin} onPress={acessar}>
-                <Text style={styles.textButton}>Entrar</Text>
+                <Text style={styles.textButton}>ENTRAR</Text>
             </TouchableOpacity>
 
             <View style={styles.Register}>
