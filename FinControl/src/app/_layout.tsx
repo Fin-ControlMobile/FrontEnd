@@ -59,7 +59,14 @@ export default function RootLayout() {
               title: "home",
               headerShown: false
             }}
+          />
 
+          <Stack.Screen
+            name="esqueceuSenha/index"
+            options={{
+              title: "esqueceuSenha",
+              headerShown: false
+            }}
           />
 
           <Stack.Screen
@@ -88,6 +95,14 @@ export default function RootLayout() {
             name="cadastro/index"
             options={{
               title: "cadastro",
+              headerShown: false
+            }}
+          />
+
+          <Stack.Screen
+            name="redefinirSenha/index"
+            options={{
+              title: "redefinirSenha",
               headerShown: false
             }}
           />
