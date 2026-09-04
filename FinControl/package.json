@@ -4,8 +4,8 @@
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -14,7 +14,8 @@
     "@expo-google-fonts/manrope": "^0.4.2",
     "@expo/vector-icons": "^15.1.1",
     "@react-native-async-storage/async-storage": "^2.2.0",
-    "@react-native-picker/picker": "^2.11.4",
+    "@react-native-picker/picker": "2.11.1",
+    "@react-native/metro-config": "^0.87.1",
     "axios": "^1.20.0",
     "expo": "~54.0.35",
     "expo-av": "~16.0.8",
@@ -36,6 +37,7 @@
     "react-native-web": "^0.21.0"
   },
   "devDependencies": {
+    "@react-native-community/cli": "^20.2.0",
     "@types/react": "~19.1.0",
     "typescript": "~5.9.2"
   },

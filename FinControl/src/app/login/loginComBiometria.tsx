@@ -1,8 +1,7 @@
-import { Alert, Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Alert, Image, Text,TouchableOpacity, View } from 'react-native'
 import { styles } from '../../styles/styles';
 import { useRouter } from 'expo-router';
 import {useBiometrics} from '../../hooks/useBiometrics';
-import { useEffect, useRef } from 'react';
 import { useState } from 'react';
 
 export default function Login() {
@@ -36,6 +35,7 @@ export default function Login() {
     setAttempts(newAttempts);
 
     if (newAttempts >= 3) {
+      Alert.alert("Numero de tentativas excedido!");
       router.replace("/login/loginSemBiometria");
     }
   }

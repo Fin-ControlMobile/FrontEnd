@@ -25,16 +25,32 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT"
+      ],
+      "package": "com.henriquebrmsteam.FinControl"
     },
     "web": {
-        "favicon": "./assets/favicon.png"
-      },
-      "plugins": [
-        "expo-font",
-        "expo-router",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font",
+      "expo-router",
+      [
         "expo-local-authentication",
-        "expo-secure-store"
-      ]
+        {
+          "faceIDPermission": "O FinControl usa o Face ID para proteger o acesso a sua conta."
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "686d87d6-71ee-4e07-9365-6ed8c25a61d5"
+      }
     }
   }
+}
