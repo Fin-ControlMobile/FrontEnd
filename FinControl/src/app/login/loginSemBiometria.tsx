@@ -68,11 +68,9 @@ export default function LoginSemBiometria() {
             </View>
 
             <View style={styles.articleLogin}>
-                <View style={styles.articleEmail}>
+                <View>
                     <Text style={styles.textLogin}>E-mail</Text>
                     <View>
-                        {/*<Fontisto name="email" size={24} color="#958ea0" /> */}
-
                         <TextInput style={styles.inputLogin}
                             placeholder="email@email.com"
                             placeholderTextColor="#958ea0"
@@ -81,7 +79,7 @@ export default function LoginSemBiometria() {
                         />
                     </View>
                 </View>
-                <View style={styles.articleEmail}>
+                <View>
                     <Text style={styles.textLogin}>Senha</Text>
                     <View>
                         {/* <Fontisto name="locked" size={20} color="#958ea0" style={styles.icon}/> */}
