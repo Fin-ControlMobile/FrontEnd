@@ -15,6 +15,11 @@ export default function Cadastro() {
     const [nome, setNome] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [senha, setSenha] = useState<string>("");
+    const [mostrarSenha,setMostrarSenha] = useState(false);
+
+    const toggleMostrarSenha = () => {
+        setMostrarSenha(!mostrarSenha);
+    }
 
     async function handleSalvar() {
         if (!nome.trim() || !email.trim() || !senha.trim()) {
@@ -81,19 +86,25 @@ export default function Cadastro() {
                         <View style={styles.inputContainer}>
                             <AntDesign name="lock" size={24} color="#494454" />
                             <TextInput
+                    
                                 placeholder="********"
                                 placeholderTextColor="#494454"
                                 style={styles.input}
                                 onChangeText={setSenha}
                                 value={senha}
+                                secureTextEntry={mostrarSenha}
                             />
                         </View>
                     </View>
 
+                    <View style={styles.entrar} >
+                        <TouchableOpacity onPress={toggleMostrarSenha}>
+                            <Text style={styles.textoEntrar}>Mostrar Senha</Text>
+                        </TouchableOpacity>
+                    </View>
 
                     <TouchableHighlight style={styles.botao} onPress={handleSalvar}>
                         <Text style={styles.textoBotao}>CADASTRAR</Text>
-
                     </TouchableHighlight>
                 </View>
                 <View style={styles.entrar} >
@@ -166,7 +177,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 2,
         borderColor: 'rgba(208, 188, 255, 0.5)',
-        borderRadius: 15,
+        borderRadius: 10,
         paddingHorizontal: 12,
         gap: 15
     },
@@ -197,7 +208,6 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center',
         padding: 2,
-        
     },
 
     conta: {
