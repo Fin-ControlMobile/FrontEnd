@@ -7,7 +7,8 @@ export const styles = StyleSheet.create({
         width: "100%",
         flexDirection: "row",
         gap: 15,
-        alignItems: "center"
+        alignItems: "center",
+        marginVertical: 10
     },
 
     featuredSource: {

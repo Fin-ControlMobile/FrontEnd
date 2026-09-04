@@ -16,7 +16,6 @@ export interface TransactionApiResponse {
   map: (item: TransactionApiResponse) => Promise<void>;
 }
 
-// Modelo interno formatado para exibição na UI
 export interface Movement {
   id: string;
   title: string;
