@@ -46,3 +46,16 @@ export async function enviarNotificacao(
     trigger: null,
   });
 }
+export async function configurarNotificacoes() {
+  if (Platform.OS === "android") {
+    await Notifications.setNotificationChannelAsync("fincontrol", {
+      name: "FinControl",
+      importance: Notifications.AndroidImportance.HIGH,
+      vibrationPattern: [0, 250, 250, 250],
+      lightColor: "#7C3AED",
+      sound: "default",
+      enableVibrate: true,
+      enableLights: true,
+    });
+  }
+}

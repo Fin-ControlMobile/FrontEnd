@@ -85,7 +85,7 @@ export default function Redefinir() {
                 [
                     {
                         text: 'OK',
-                        onPress: () => router.replace('/login')
+                        onPress: () => router.replace('/login/loginSemBiometria')
                     }
                 ]
             );

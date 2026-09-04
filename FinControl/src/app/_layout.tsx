@@ -1,14 +1,22 @@
 import { router, Stack } from "expo-router";
-import { StatusBar } from "react-native"
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Manrope_600SemiBold, Manrope_700Bold, Manrope_800ExtraBold, useFonts } from '@expo-google-fonts/manrope'
-import { JetBrainsMono_400Regular } from '@expo-google-fonts/jetbrains-mono';
-import { Colors } from "../constants/theme";
-import { StackScreen } from "react-native-screens";
-import { AuthProvider } from "../context/AuthContext";
-import { useEffect } from "react";
-import * as Notifications from 'expo-notifications'
+import { StatusBar } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
+import {
+  Manrope_600SemiBold,
+  Manrope_700Bold,
+  Manrope_800ExtraBold,
+  useFonts,
+} from "@expo-google-fonts/manrope";
+
+import { JetBrainsMono_400Regular } from "@expo-google-fonts/jetbrains-mono";
+
+import { Colors } from "../constants/theme";
+import { AuthProvider } from "../context/AuthContext";
+
+import { useEffect } from "react";
+import * as Notifications from "expo-notifications";
+import { configurarNotificacoes } from "../services/notificacaoService";
 
 export default function RootLayout() {
 
@@ -16,31 +24,41 @@ export default function RootLayout() {
     JetBrainsMono_400Regular,
     Manrope_600SemiBold,
     Manrope_700Bold,
-    Manrope_800ExtraBold
-  })
+    Manrope_800ExtraBold,
+  });
 
+  // TODOS os Hooks ficam antes dos returns condicionais
+  useEffect(() => {
+
+  // Configura o canal do Android quando o app inicia
+  configurarNotificacoes();
+
+  const subscription =
+    Notifications.addNotificationResponseReceivedListener((response) => {
+
+      const data = response.notification.request.content.data;
+
+      if (data.tipo === "movimentacao") {
+        router.push("/");
+      }
+
+    });
+
+  return () => {
+    subscription.remove();
+  };
+
+}, []);
+
+  // Só depois dos Hooks
   if (!fontsLoaded && !fontError) {
     return null;
   }
 
-   useEffect(() => {
-    const subscription =
-      Notifications.addNotificationResponseReceivedListener(response => {
-        const data =
-          response.notification.request.content.data;
-      
-        if (data.tipo === 'movimentacao') {
-          router.push('/')
-        }
-      });
-    return () => {
-      subscription.remove();
-    };
-  }, []);
-
   return (
     <AuthProvider>
       <SafeAreaProvider>
+
         <StatusBar
           backgroundColor={Colors.purpleTitleColor}
         />
@@ -51,7 +69,7 @@ export default function RootLayout() {
             name="splash/index"
             options={{
               title: "splash",
-              headerShown: false
+              headerShown: false,
             }}
           />
 
@@ -59,7 +77,7 @@ export default function RootLayout() {
             name="login/loginSemBiometria"
             options={{
               title: "loginSemBiometria",
-              headerShown: false
+              headerShown: false,
             }}
           />
 
@@ -67,7 +85,7 @@ export default function RootLayout() {
             name="login/loginComBiometria"
             options={{
               title: "loginComBiometria",
-              headerShown: false
+              headerShown: false,
             }}
           />
 
@@ -75,7 +93,7 @@ export default function RootLayout() {
             name="home/index"
             options={{
               title: "home",
-              headerShown: false
+              headerShown: false,
             }}
           />
 
@@ -83,7 +101,7 @@ export default function RootLayout() {
             name="esqueceuSenha/index"
             options={{
               title: "esqueceuSenha",
-              headerShown: false
+              headerShown: false,
             }}
           />
 
@@ -91,21 +109,23 @@ export default function RootLayout() {
             name="detalhes/index"
             options={{
               title: "wallet",
-              headerShown: false
+              headerShown: false,
             }}
           />
+
           <Stack.Screen
             name="movimentacoes/index"
             options={{
               title: "Tela de movimentacoes",
-              headerShown: false
+              headerShown: false,
             }}
           />
+
           <Stack.Screen
             name="seguranca/index"
             options={{
               title: "shield",
-              headerShown: false
+              headerShown: false,
             }}
           />
 
@@ -113,7 +133,7 @@ export default function RootLayout() {
             name="cadastro/index"
             options={{
               title: "cadastro",
-              headerShown: false
+              headerShown: false,
             }}
           />
 
@@ -121,11 +141,12 @@ export default function RootLayout() {
             name="redefinirSenha/index"
             options={{
               title: "redefinirSenha",
-              headerShown: false
+              headerShown: false,
             }}
           />
 
         </Stack>
+
       </SafeAreaProvider>
     </AuthProvider>
   );
