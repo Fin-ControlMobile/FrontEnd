@@ -15,9 +15,6 @@ export const styles = StyleSheet.create({
         ...Title,
         color: Colors.purpleTitleColor,
     },
-    articleEmail:{
-        margin: 15
-    },
     textLogin: {
         ...TextRegular,
         color: Colors.whiteTitleColor,
