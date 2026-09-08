@@ -20,9 +20,6 @@ export default function LoginSemBiometria() {
         const emailDigitado = email.trim();
         const senhaDigitada = senha.trim();
 
-        console.log("Email digitado:", emailDigitado);
-        console.log("Senha digitada:", senhaDigitada);
-
 
         if (!emailDigitado || !senhaDigitada) {
             Alert.alert("Atenção ⚠👀", "Por favor, preencha o e-mail e senha.");
