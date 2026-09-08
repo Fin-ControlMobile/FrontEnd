@@ -105,12 +105,6 @@ export default function LoginSemBiometria() {
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.RegisterAccess}>
-                    <Text style={styles.textRedirect}>Acesse rapidamente com digital! </Text>
-                    <TouchableOpacity onPress={acessarLoginBiometria}>
-                        <Text style={styles.textRegister}>Clique aqui!</Text>
-                    </TouchableOpacity>
-                </View>
                 <View style={styles.Register}>
                     <TouchableOpacity onPress={acessarEsqueceuSenha}>
                         <Text style={styles.textRegister}>Esqueceu a senha?</Text>
