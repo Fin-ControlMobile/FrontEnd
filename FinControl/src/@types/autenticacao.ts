@@ -19,7 +19,8 @@ export interface TransacaoResponse{
 
 export interface Usuario{
     nome: string,
-    email: string
+    email: string,
+    usuarioId?: string
 }
 
 export interface UsuarioPayload{

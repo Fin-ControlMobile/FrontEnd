@@ -23,19 +23,22 @@ export function Splash({ onComplete }: Props) {
             if (status.didJustFinish) {
                 onComplete(true);
 
-                const primeiroAcesso = await AsyncStorage.getItem("primeiroAcesso");
-
-                if (primeiroAcesso) {
-
-                    router.replace("/login/loginSemBiometria");
-
-                    await AsyncStorage.setItem(
-                        "primeiroAcesso",
-                        "true"
+                try {
+                    // Busca se existe o token salvo no dispositivo
+                    const tokenSalvo = await AsyncStorage.getItem(
+                        process.env.EXPO_PUBLIC_TOKEN_KEY!
                     );
-                }
-                else {
-                    router.replace("/login/loginComBiometria");
+
+                    if (tokenSalvo) {
+                        // Já fez login antes -> Vai para Biometria
+                        router.replace("/login/loginComBiometria");
+                    } else {
+                        // Primeiro acesso ou fez logout -> Vai para Email/Senha
+                        router.replace("/login/loginSemBiometria");
+                    }
+                } catch (error) {
+                    console.error("Erro ao verificar acesso no AsyncStorage:", error);
+                    router.replace("/login/loginSemBiometria");
                 }
             }
         }
