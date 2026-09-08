@@ -11,3 +11,6 @@ export interface Usuario{
     senha: string,
 }
 
+export interface UsuarioPrimeiroAcesso{
+    primeiroAcesso: boolean
+}
