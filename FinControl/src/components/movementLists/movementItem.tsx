@@ -13,7 +13,6 @@ export function MovementItem({ data}: MovementItemProps) {
   const isOutcome = data.type === 'outcome';
 
 function direcionarDetalhes(){
-    console.log(data.id)
     router.push({
         pathname: '/detalhes/[id]',
         params: { id: data.id }

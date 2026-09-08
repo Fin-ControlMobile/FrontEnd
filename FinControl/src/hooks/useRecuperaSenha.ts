@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { autenticacaoService } from "../services/autenticacaoService";
+import { autenticacaoService } from "../services/auth/autenticacaoService";
+
 
 export function useRecuperacaoSenha() {
   const [loading, setLoading] = useState(false);

@@ -91,8 +91,6 @@ export default function Redefinir() {
             );
         } catch (error: any) {
 
-            console.log(error);
-
             const mensagem =
                 error?.response?.data ||
                 'Não foi possível redefinir sua senha. Verifique o código e tente novamente.';
