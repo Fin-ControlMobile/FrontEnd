@@ -1,4 +1,8 @@
-import { TransactionApiResponse, GroupedSection } from '../@types/movementLists';
+import {
+  TransactionApiResponse,
+  GroupedSection,
+} from '../@types/movementLists';
+
 import { transformApiToMovement } from './formatters';
 
 export function groupTransactionsByDate(
@@ -9,30 +13,54 @@ export function groupTransactionsByDate(
 
   transactions.forEach((tx) => {
     const date = new Date(tx.dataTransacao);
-    const today = new Date();
-    const yesterday = new Date();
-    yesterday.setDate(today.getDate() - 1);
 
-    let dateTitle = date
-      .toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' })
-      .replace('.', '')
-      .toUpperCase();
+    // Chave interna da data: YYYY-MM-DD
+    const dateKey = [
+      date.getFullYear(),
+      String(date.getMonth() + 1).padStart(2, '0'),
+      String(date.getDate()).padStart(2, '0'),
+    ].join('-');
 
-    if (date.toDateString() === today.toDateString()) {
-      dateTitle = 'HOJE';
-    } else if (date.toDateString() === yesterday.toDateString()) {
-      dateTitle = 'ONTEM';
+    if (!groups[dateKey]) {
+      groups[dateKey] = [];
     }
 
-    if (!groups[dateTitle]) {
-      groups[dateTitle] = [];
-    }
-
-    groups[dateTitle].push(transformApiToMovement(tx, currentUserId));
+    groups[dateKey].push(
+      transformApiToMovement(tx, currentUserId)
+    );
   });
 
-  return Object.keys(groups).map((title) => ({
-    title,
-    data: groups[title],
-  }));
+  const today = new Date();
+
+  const yesterday = new Date();
+  yesterday.setDate(today.getDate() - 1);
+
+  // Ordena as datas da mais recente para a mais antiga
+  const sortedDates = Object.keys(groups).sort((a, b) => {
+    return (
+      new Date(`${b}T12:00:00`).getTime() -
+      new Date(`${a}T12:00:00`).getTime()
+    );
+  });
+
+  return sortedDates.map((dateKey) => {
+    const date = new Date(`${dateKey}T12:00:00`);
+
+    let title = date
+      .toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+      });
+
+    if (date.toDateString() === today.toDateString()) {
+      title = 'HOJE';
+    } else if (date.toDateString() === yesterday.toDateString()) {
+      title = 'ONTEM';
+    }
+
+    return {
+      title,
+      data: groups[dateKey],
+    };
+  });
 }
