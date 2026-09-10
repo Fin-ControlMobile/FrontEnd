@@ -13,13 +13,11 @@ import { useState } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 
 import { useRecuperacaoSenha } from '../../hooks/useRecuperaSenha';
-import { useNotificacao } from '../../hooks/useNotificacao';
 
 
 export default function Redefinir() {
 
     const router = useRouter();
-    const {notificar} = useNotificacao();
     const { email } = useLocalSearchParams<{ email?: string }>();
 
     const { redefinirSenha, loading } = useRecuperacaoSenha();
@@ -78,7 +76,6 @@ export default function Redefinir() {
                 novaSenha
             );
 
-            await notificar('Sua senha foi redefinada!', 'Sua senha foi redefinada com sucesso.')
             Alert.alert(
                 'Sucesso',
                 'Sua senha foi redefinida com sucesso!',

@@ -15,8 +15,6 @@ import { Colors } from "../constants/theme";
 import { AuthProvider } from "../context/AuthContext";
 
 import { useEffect } from "react";
-import * as Notifications from "expo-notifications";
-import { configurarNotificacoes } from "../services/notificacaoService";
 
 export default function RootLayout() {
 
@@ -26,29 +24,6 @@ export default function RootLayout() {
     Manrope_700Bold,
     Manrope_800ExtraBold,
   });
-
-  // TODOS os Hooks ficam antes dos returns condicionais
-  useEffect(() => {
-
-  // Configura o canal do Android quando o app inicia
-  configurarNotificacoes();
-
-  const subscription =
-    Notifications.addNotificationResponseReceivedListener((response) => {
-
-      const data = response.notification.request.content.data;
-
-      if (data.tipo === "movimentacao") {
-        router.push("/");
-      }
-
-    });
-
-  return () => {
-    subscription.remove();
-  };
-
-}, []);
 
   // Só depois dos Hooks
   if (!fontsLoaded && !fontError) {
