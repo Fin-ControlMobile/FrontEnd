@@ -11,6 +11,7 @@ type Props = {
 
 export function Splash({ onComplete }: Props) {
 
+
     const router = useRouter();
     const [lastStatus, setStatus] = useState<AVPlaybackStatus>({} as AVPlaybackStatus)
 
